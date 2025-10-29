@@ -1,26 +1,33 @@
-/* Variables CSS (compilées depuis le SASS) */
-:root {
-  --font-main: 'Inter', sans-serif;
-  --color-bg: #f9f9f9;
-  --color-text: #222;
-  --color-accent: #7fa67a;
-  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 body {
-  font-family: var(--font-main);
+  font-family: "Inter", sans-serif;
   margin: 0;
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: linear-gradient(180deg, #1F2937 0%, #111827 100%);
+  color: #F9FAFB;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  /* Ajout pour la transition */
-  opacity: 1;
   transition: opacity 0.4s ease-out;
+  animation: fadeIn 0.4s ease-out;
 }
 
-/* Classe pour l'animation de sortie */
 body.fade-out {
   opacity: 0;
 }
@@ -28,39 +35,49 @@ body.fade-out {
 .header {
   text-align: center;
   padding: 2rem 1rem;
-  position: relative; /* Pour positionner le bouton retour */
+  position: relative;
 }
-
+.header h1, .header .subtitle, .header .back {
+  animation: slideUp 0.5s ease-out 0.1s;
+  animation-fill-mode: backwards;
+}
+.header .subtitle {
+  animation-delay: 0.2s;
+}
+.header .back {
+  animation-delay: 0.3s;
+}
 .header h1 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
   margin: 0;
-  font-weight: 600;
-  font-size: 2rem;
+  font-size: 2.25rem;
 }
-
 .header .subtitle {
   margin-top: 0.5rem;
   font-weight: 300;
-  color: #555;
+  color: #9CA3AF;
 }
-
-/* Style pour le lien "Retour" */
 .header .back {
   display: inline-block;
   text-decoration: none;
-  color: var(--color-accent);
+  color: #34D399;
   font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  transition: background 0.3s ease;
-  /* Positionnement */
+  font-family: "Montserrat", sans-serif;
+  padding: 0.6rem 1.25rem;
+  border-radius: 50px;
+  border: 2px solid #34D399;
+  transition: all 0.3s ease;
   position: absolute;
   left: 2rem;
   top: 50%;
   transform: translateY(-50%);
 }
-
 .header .back:hover {
-  background: rgba(127, 166, 122, 0.1); /* 127, 166, 122 est la version RGB de #7fa67a */
+  background: #34D399;
+  color: #111827;
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+  transform: translateY(-50%) scale(1.05);
 }
 
 .dashboard {
@@ -74,122 +91,207 @@ body.fade-out {
   width: 100%;
   box-sizing: border-box;
 }
-
 .dashboard .card {
-  background: white;
-  border-radius: 12px;
+  background: #1F2937;
+  border-radius: 8px;
   padding: 1.5rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   transition: all 0.3s ease;
   cursor: pointer;
   text-align: left;
+  border: 1px solid transparent;
+  opacity: 0;
+  animation: slideUp 0.5s ease-out;
+  animation-fill-mode: forwards;
 }
-
+.dashboard .card:nth-child(1) {
+  animation-delay: 0.35s;
+}
+.dashboard .card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.dashboard .card:nth-child(3) {
+  animation-delay: 0.45s;
+}
+.dashboard .card:nth-child(4) {
+  animation-delay: 0.5s;
+}
+.dashboard .card:nth-child(5) {
+  animation-delay: 0.55s;
+}
+.dashboard .card:nth-child(6) {
+  animation-delay: 0.6s;
+}
 .dashboard .card h2 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
   margin-top: 0;
-  color: var(--color-accent);
-  /* Ajout pour les icônes */
+  color: #34D399;
   display: flex;
   align-items: center;
 }
-
 .dashboard .card h2 i {
   margin-right: 0.75rem;
   font-size: 1.25rem;
-  width: 20px; /* Assure un alignement uniforme */
+  width: 20px;
   text-align: center;
 }
-
 .dashboard .card p {
-  color: #555;
+  color: #9CA3AF;
 }
-
 .dashboard .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+  border-color: rgba(52, 211, 153, 0.5);
 }
 
-/* Style pour les pages de contenu (about, projects, etc.) */
 .content {
   max-width: 900px;
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto 2rem auto;
   padding: 2rem 2.5rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: var(--shadow);
+  background: #1F2937;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
   flex-grow: 1;
+  opacity: 0;
+  animation: slideUp 0.6s ease-out 0.3s;
+  animation-fill-mode: forwards;
 }
-
+.content section + section {
+  margin-top: 2.5rem;
+}
+.content h2, .content h3 {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+}
 .content h2 {
-  color: var(--color-accent);
-  border-bottom: 3px solid var(--color-bg);
+  color: #34D399;
+  border-bottom: 2px solid #111827;
   padding-bottom: 0.5rem;
   margin-top: 0;
 }
-
-.content p {
-  line-height: 1.6;
-  color: #333;
+.content h2 i, .content h3 i {
+  color: #34D399;
+  margin-right: 0.75rem;
+  width: 20px;
+  text-align: center;
+}
+.content p, .content li {
+  line-height: 1.7;
+  color: #9CA3AF;
+  font-weight: 300;
+}
+.content strong {
+  color: #F9FAFB;
+  font-weight: 500;
+}
+.content ul:not(.contact-list, .skills-list) {
+  line-height: 1.7;
+  padding-left: 20px;
 }
 
 .footer {
   text-align: center;
   padding: 1rem;
   font-size: 0.9rem;
-  color: #777;
+  color: #9CA3AF;
 }
 
-/* Ajustements pour les petits écrans */
 @media (max-width: 600px) {
   .header {
-    padding-top: 4rem; /* Plus d'espace pour le bouton retour */
+    padding-top: 5rem;
   }
-
   .header .back {
     left: 50%;
     top: 1rem;
-    transform: translateX(-50%); /* Centrer le bouton retour */
+    transform: translateX(-50%);
   }
-  
+  .header .back:hover {
+    transform: translateX(-50%) scale(1.05);
+  }
   .dashboard {
     padding: 1rem;
   }
-  
   .content {
     padding: 1.5rem 1rem;
   }
 }
-
-/* Styles pour la page Contact */
 .contact-list {
   list-style: none;
   padding-left: 0;
-  line-height: 2.5; /* Augmente l'espacement */
+  line-height: 2.5;
 }
-
 .contact-list li {
   font-size: 1.1rem;
   display: flex;
   align-items: center;
 }
-
 .contact-list i {
-  color: var(--color-accent);
-  width: 40px; /* Aligne les icônes */
+  color: #34D399;
+  width: 40px;
   font-size: 1.3rem;
   text-align: center;
   margin-right: 10px;
 }
-
 .contact-list a {
   text-decoration: none;
-  color: var(--color-text);
+  color: #9CA3AF;
+  font-weight: 500;
   transition: color 0.3s ease;
 }
-
 .contact-list a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
+  color: #34D399;
 }
+
+.skills-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0;
+}
+.skills-list li {
+  background: #111827;
+  color: #34D399;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  font-family: "Montserrat", sans-serif;
+  border: 1px solid #34D399;
+  transition: all 0.3s ease;
+}
+.skills-list li:hover {
+  background: #34D399;
+  color: #111827;
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(52, 211, 153, 0.5);
+}
+
+.project-card {
+  background: #111827;
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-top: 1.5rem;
+  border: 1px solid #1F2937;
+  transition: all 0.3s ease;
+}
+.project-card:hover {
+  border-color: rgba(52, 211, 153, 0.5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+.project-card h3 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  color: #F9FAFB;
+}
+.project-card p {
+  margin-bottom: 0.5rem;
+}
+.project-card p:last-child {
+  margin-bottom: 0;
+}/*# sourceMappingURL=style.css.map */
