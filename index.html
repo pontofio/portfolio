@@ -5,54 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio - Fiona Pontoparia</title>
   
-  <!-- VOICI LA CORRECTION : Il faut lier "style.css" et non "style.scss" -->
   <link rel="stylesheet" href="assets/css/style.css">
   
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   
-  <!-- Ajout de Font Awesome (Icônes) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
   <header class="header">
     <h1>Fiona Pontoparia</h1>
-    <p class="subtitle">Apprentie Ingénieure en Informatique</p>
+    <p class="subtitle">Apprentie Ingénieure en Informatique Engagée et Réflexive</p>
   </header>
 
   <main class="dashboard">
-    <!-- Cartes mises à jour avec les icônes -->
     <div class="card" onclick="navigateTo('about.html')">
       <h2><i class="fa-solid fa-user-circle"></i> À propos</h2>
-      <p>Découvre mon parcours, ma philosophie et mes objectifs.</p>
+      <p>Mon parcours, mes motivations et mes valeurs.</p>
     </div>
 
     <div class="card" onclick="navigateTo('projects.html')">
-      <h2><i class="fa-solid fa-laptop-code"></i> Projets</h2>
-      <p>Une sélection de mes projets académiques et professionnels.</p>
+      <h2><i class="fa-solid fa-laptop-code"></i> Projets Réalisés</h2>
+      <p>Mes projets en entreprise et en formation.</p>
     </div>
 
     <div class="card" onclick="navigateTo('skills.html')">
       <h2><i class="fa-solid fa-cogs"></i> Compétences</h2>
-      <p>Mes compétences techniques et outils de prédilection.</p>
+      <p>Mes compétences techniques, humaines et managériales.</p>
     </div>
 
-    <div class="card" onclick="navigateTo('contact.html')">
-      <h2><i class="fa-solid fa-paper-plane"></i> Contact</h2>
-      <p>Travaillons ensemble ou discutons de tes idées.</p>
+    <div class="card" onclick="navigateTo('ethique.html')">
+      <h2><i class="fa-solid fa-heart"></i> Engagements</h2>
+      <p>Mes engagements éthiques et citoyens.</p>
     </div>
 
     <div class="card" onclick="navigateTo('cv.pdf')">
       <h2><i class="fa-solid fa-file-arrow-down"></i> Mon CV</h2>
       <p>Télécharge ma version la plus récente.</p>
     </div>
+    
+    <div class="card" onclick="navigateTo('contact.html')">
+      <h2><i class="fa-solid fa-paper-plane"></i> Contact</h2>
+      <p>Travaillons ensemble ou discutons de tes idées.</p>
+    </div>
+
   </main>
 
   <footer class="footer">
     <p>© 2025 Fiona Pontoparia – Portfolio personnel</p>
   </footer>
 
-  <!-- Ajout du script pour les transitions -->
   <script src="assets/js/main.js"></script>
 </body>
 </html>
-

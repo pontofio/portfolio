@@ -161,3 +161,35 @@ body.fade-out {
     padding: 1.5rem 1rem;
   }
 }
+
+/* Styles pour la page Contact */
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+  line-height: 2.5; /* Augmente l'espacement */
+}
+
+.contact-list li {
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-list i {
+  color: var(--color-accent);
+  width: 40px; /* Aligne les icônes */
+  font-size: 1.3rem;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.contact-list a {
+  text-decoration: none;
+  color: var(--color-text);
+  transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
