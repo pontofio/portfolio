@@ -12,7 +12,6 @@
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 </head>
 <body>
   
@@ -21,89 +20,37 @@
     <p class="subtitle">Apprentie Ingénieure en Informatique Engagée et Réflexive</p>
   </header>
 
-  <main class="dashboard-grid">
+  <main class="dashboard">
 
-    <section class="widget timeline-widget">
-      <h2>Mon Parcours</h2>
-      <ul class="timeline">
-        <li class="timeline-item">
-          <div class="timeline-date">2024 - ...</div>
-          <div class="timeline-content">
-            <h3>Itii Picardie</h3>
-            <p>Apprentie Ingénieure Informatique</p>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-date">2023 - 2024</div>
-          <div class="timeline-content">
-            <h3>Service Civique</h3>
-            <p>Unis Cité Beauvais - Ambassadrice du Code</p>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-date">2022 - 2023</div>
-          <div class="timeline-content">
-            <h3>Aidante</h3>
-            <p>Expérience personnelle formatrice</p>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-date">2021 - 2022</div>
-          <div class="timeline-content">
-            <h3>Université de Lille</h3>
-            <p>L2 Informatique</p>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-date">2019 - 2021</div>
-          <div class="timeline-content">
-            <h3>HEI Lille</h3>
-            <p>Cycle Ingénieur IT</p>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-date">2017 - 2019</div>
-          <div class="timeline-content">
-            <h3>Prépa PCSI/PC</h3>
-            <p>La Salle HEI Lille</p>
-          </div>
-        </li>
-        <li class="timeline-item">
-          <div class="timeline-date">2017</div>
-          <div class="timeline-content">
-            <h3>Bac S - Spé ISN</h3>
-            <p>Lycée Évariste Gallois</p>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <div class="card" onclick="navigateTo('about.html')">
+      <h2><i class="fa-solid fa-user"></i> À Propos</h2>
+      <p>Découvrir mon profil, mon parcours et mes valeurs.</p>
+    </div>
 
-    <section class="widget chart-widget">
-      <h2>Radar de Compétences</h2>
-      <canvas id="skillsRadarChart"></canvas>
-    </section>
+    <div class="card" onclick="navigateTo('projects.html')">
+      <h2><i class="fa-solid fa-laptop-code"></i> Projets Détaillés</h2>
+      <p>Voir mes réalisations en entreprise et formation.</p>
+    </div>
 
-    <section class="widget nav-widget-container">
-      <h2>Explorons</h2>
-      <div class="nav-cards">
-        <div class="nav-card" onclick="navigateTo('projects.html')">
-          <h3><i class="fa-solid fa-laptop-code"></i> Projets Détaillés</h3>
-          <p>Voir mes réalisations en entreprise et formation.</p>
-        </div>
-        <div class="nav-card" onclick="navigateTo('ethique.html')">
-          <h3><i class="fa-solid fa-heart"></i> Engagements</h3>
-          <p>Découvrir mon parcours citoyen et éthique.</p>
-        </div>
-        <div class="nav-card" onclick="navigateTo('cv.pdf')">
-          <h3><i class="fa-solid fa-file-arrow-down"></i> Mon CV</h3>
-          <p>Télécharger la version complète de mon CV.</p>
-        </div>
-        <div class="nav-card" onclick="navigateTo('contact.html')">
-          <h3><i class="fa-solid fa-paper-plane"></i> Me Contacter</h3>
-          <p>Discutons ensemble de vos projets ou idées.</p>
-        </div>
-      </div>
-    </section>
+    <div class="card" onclick="navigateTo('skills.html')">
+      <h2><i class="fa-solid fa-list-check"></i> Compétences</h2>
+      <p>Explorer mes compétences techniques et humaines.</p>
+    </div>
+
+    <div class="card" onclick="navigateTo('ethique.html')">
+      <h2><i class="fa-solid fa-heart"></i> Engagements</h2>
+      <p>Découvrir mon parcours citoyen et éthique.</p>
+    </div>
+
+    <div class="card" onclick="navigateTo('cv.pdf')">
+      <h2><i class="fa-solid fa-file-arrow-down"></i> Mon CV</h2>
+      <p>Télécharger la version complète de mon CV.</p>
+    </div>
+
+    <div class="card" onclick="navigateTo('contact.html')">
+      <h2><i class="fa-solid fa-paper-plane"></i> Me Contacter</h2>
+      <p>Discutons ensemble de vos projets ou idées.</p>
+    </div>
 
   </main>
 

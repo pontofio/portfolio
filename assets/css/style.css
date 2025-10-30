@@ -187,7 +187,7 @@ body.fade-out {
   color: #F9FAFB;
   font-weight: 500;
 }
-.content ul:not(.contact-list, .skills-list) {
+.content ul:not(.contact-list, .skills-list, .timeline) {
   line-height: 1.7;
   padding-left: 20px;
 }
@@ -294,4 +294,91 @@ body.fade-out {
 }
 .project-card p:last-child {
   margin-bottom: 0;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* --- NOUVEAUX STYLES (Timeline pour page "À propos") --- */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #1F2937;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem;
+  padding-bottom: 2rem;
+}
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #34D399;
+  border: 2px solid #111827;
+  z-index: 1;
+}
+
+.timeline-content {
+  background: #111827;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  border: 1px solid #1F2937;
+}
+.timeline-content h3 {
+  margin: 0 0 0.25rem 0;
+  color: #F9FAFB;
+}
+.timeline-content p {
+  margin: 0;
+  color: #9CA3AF;
+  font-size: 0.95rem;
+}
+
+.timeline-date {
+  position: absolute;
+  left: 2.5rem;
+  top: -0.7rem;
+  color: #34D399;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: #1F2937;
+  padding: 0 0.5rem;
+  border-radius: 4px;
+}
+
+@media (max-width: 600px) {
+  .timeline::before {
+    left: 3px;
+  }
+  .timeline-item {
+    padding-left: 2rem;
+  }
+  .timeline-item::before {
+    width: 8px;
+    height: 8px;
+  }
+  .timeline-date {
+    left: 2rem;
+  }
+  .timeline-content {
+    padding: 0.75rem 1rem;
+  }
+}
+/*# sourceMappingURL=style.css.map */

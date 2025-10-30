@@ -349,4 +349,108 @@ body.fade-out {
   p:last-child {
     margin-bottom: 0;
   }
+  // --- NOUVEAUX STYLES (Timeline pour page "À propos") ---
+
+// Conteneur de la timeline
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 2rem;
+  position: relative;
+  
+  // La ligne verticale de la timeline
+  &::before {
+    content: '';
+    position: absolute;
+    left: 4px; // Décale à gauche pour centrer sur le point
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: $color-surface; // Utilise la couleur de fond des cartes
+  }
+}
+
+// Chaque item de la timeline
+.timeline-item {
+  position: relative;
+  padding-left: 2.5rem; // Espace pour le point et la date
+  padding-bottom: 2rem; // Espace entre les items
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  // Le point sur la ligne
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px; // Aligne avec la première ligne de texte
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $color-accent;
+    border: 2px solid $color-bg;
+    z-index: 1;
+  }
+}
+
+// Le contenu de l'item
+.timeline-content {
+  background: $color-bg; // Fond plus sombre (comme les project-cards)
+  border-radius: $border-radius;
+  padding: 1rem 1.5rem;
+  border: 1px solid $color-surface;
+  
+  h3 {
+    margin: 0 0 0.25rem 0;
+    color: $color-text;
+  }
+  
+  p {
+    margin: 0;
+    color: $color-text-muted;
+    font-size: 0.95rem;
+  }
+}
+
+// La date
+.timeline-date {
+  position: absolute;
+  left: 2.5rem;
+  top: -0.7rem; // Se place juste au-dessus du contenu
+  color: $color-accent;
+  font-family: $font-headings;
+  font-weight: 600;
+  font-size: 0.85rem;
+  background: $color-surface; // Fond de la page de contenu
+  padding: 0 0.5rem;
+  border-radius: 4px;
+}
+
+// --- Responsive pour la Timeline ---
+@media (max-width: 600px) {
+  .timeline {
+    &::before {
+      left: 3px; // Ajuste la ligne
+    }
+  }
+  
+  .timeline-item {
+    padding-left: 2rem; // Réduit l'espace
+    
+    &::before {
+      width: 8px;
+      height: 8px;
+    }
+  }
+  
+  .timeline-date {
+    left: 2rem;
+  }
+  
+  .timeline-content {
+    padding: 0.75rem 1rem;
+  }
+}
 }
