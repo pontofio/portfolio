@@ -1,19 +1,21 @@
-// --- VARIABLES (Nouvelle palette "Dark Mode") ---
+// --- VARIABLES (Nouvelle palette "Light Mode") ---
 $font-main: 'Inter', sans-serif;
 $font-headings: 'Montserrat', sans-serif;
 
-$color-bg: #111827; // Bleu nuit très sombre
-$color-surface: #1F2937; // Gris-bleu pour les cartes
-$color-text: #F9FAFB; // Blanc cassé
-$color-text-muted: #9CA3AF; // Gris clair pour le texte secondaire
-$color-accent: #34D399; // Vert émeraude vibrant
-$color-accent-hover: #10B981; // Vert plus foncé au survol
+// Palette lumineuse
+$color-bg: #F8F9FA; // Fond général (très léger gris)
+$color-surface: #FFFFFF; // Fond des cartes et du contenu (blanc)
+$color-text: #212529; // Texte principal (presque noir)
+$color-text-muted: #6C757D; // Texte secondaire (gris)
+$color-accent: #4F46E5; // Nouvel accent (Indigo vibrant)
+$color-accent-hover: #4338CA; // Accent plus sombre
+$color-border: #E0E0E0; // Bordures légères
 
-$shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-$shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.5);
+$shadow: 0 4px 12px rgba(0, 0, 0, 0.05); // Ombre très subtile
+$shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.08);
 $border-radius: 8px;
 
-// --- KEYFRAMES (Animations d'entrée) ---
+// --- KEYFRAMES (Inchangés) ---
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -34,32 +36,25 @@ $border-radius: 8px;
 body {
   font-family: $font-main;
   margin: 0;
-  // Fond dégradé subtil
-  background: linear-gradient(180deg, $color-surface 0%, $color-bg 100%);
+  background-color: $color-bg;
   color: $color-text;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  
-  // Transition de sortie (JS)
   transition: opacity 0.4s ease-out;
-  
-  // Animation d'entrée
   animation: fadeIn 0.4s ease-out;
 }
 
-// Classe pour l'animation de sortie (JS)
 body.fade-out {
   opacity: 0;
 }
 
-// --- HEADER ---
+// --- HEADER (pour les pages de contenu) ---
 .header {
   text-align: center;
   padding: 2rem 1rem;
   position: relative; 
   
-  // Animation d'entrée pour le header
   h1, .subtitle, .back {
     animation: slideUp 0.5s ease-out 0.1s;
     animation-fill-mode: backwards;
@@ -68,28 +63,29 @@ body.fade-out {
   .back { animation-delay: 0.3s; }
 
   h1 {
-    font-family: $font-headings; // Nouvelle police
+    font-family: $font-headings;
     font-weight: 700;
     margin: 0;
-    font-size: 2.25rem; // Plus grand
+    font-size: 2.25rem;
+    color: $color-text; // Changé
   }
 
   .subtitle {
     margin-top: 0.5rem;
     font-weight: 300;
-    color: $color-text-muted; // Couleur adoucie
+    color: $color-text-muted; // Changé
   }
   
-  // Style "Retour" AMÉLIORÉ
+  // Bouton Retour
   .back {
     display: inline-block;
     text-decoration: none;
-    color: $color-accent;
+    color: $color-accent; // Changé
     font-weight: 600;
     font-family: $font-headings;
     padding: 0.6rem 1.25rem;
-    border-radius: 50px; // Arrondi
-    border: 2px solid $color-accent;
+    border-radius: 50px;
+    border: 2px solid $color-accent; // Changé
     transition: all 0.3s ease;
     
     position: absolute;
@@ -98,89 +94,192 @@ body.fade-out {
     transform: translateY(-50%);
 
     &:hover {
-      background: $color-accent;
-      color: $color-bg;
+      background: $color-accent; // Changé
+      color: $color-surface; // Changé
       box-shadow: 0 0 15px rgba($color-accent, 0.5);
       transform: translateY(-50%) scale(1.05);
     }
   }
 }
 
-// --- DASHBOARD (Page d'accueil) ---
-.dashboard {
+// --- NOUVEAU DASHBOARD (index.html) ---
+.main-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-  padding: 2rem;
+  grid-template-columns: 320px 1fr; // Colonne de profil fixe + contenu
+  gap: 2rem;
+  padding: 3rem;
   flex-grow: 1;
-  max-width: 1000px;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
 
-  .card {
+  // Section de profil à gauche
+  .profile-intro {
     background: $color-surface;
     border-radius: $border-radius;
-    padding: 1.5rem;
+    padding: 2rem;
     box-shadow: $shadow;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-align: left;
-    border: 1px solid transparent; // Bordure initiale
-    
-    // Animation d'entrée pour les cartes
-    opacity: 0;
-    animation: slideUp 0.5s ease-out;
+    height: fit-content; // S'adapte au contenu
+    animation: slideUp 0.5s ease-out 0.2s;
     animation-fill-mode: forwards;
+    opacity: 0;
 
-    // Délai d'animation en cascade
-    @for $i from 1 through 6 {
-      &:nth-child(#{$i}) {
-        animation-delay: #{(0.05 * $i) + 0.3}s;
-      }
-    }
-
-    h2 {
-      font-family: $font-headings;
-      font-weight: 600;
-      margin-top: 0;
-      color: $color-accent;
+    .avatar {
+      font-size: 3rem;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, $color-accent 0%, lighten($color-accent, 15%) 100%);
+      color: $color-surface;
       display: flex;
       align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 10px rgba($color-accent, 0.3);
+    }
 
-      i {
-        margin-right: 0.75rem;
-        font-size: 1.25rem;
-        width: 20px;
-        text-align: center;
+    h1 {
+      font-family: $font-headings;
+      font-weight: 700;
+      margin: 0 0 0.5rem 0;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      font-weight: 300;
+      color: $color-text-muted;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .bio {
+      font-weight: 400;
+      color: $color-text-muted;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+    }
+
+    .profile-contact {
+      list-style: none;
+      padding-left: 0;
+      line-height: 2.2;
+      margin-bottom: 2rem;
+      
+      li {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        i {
+          color: $color-accent;
+          width: 30px;
+          text-align: center;
+          margin-right: 10px;
+          font-size: 1.1rem;
+        }
+        a {
+          text-decoration: none;
+          color: $color-text-muted;
+          font-weight: 500;
+          transition: color 0.3s ease;
+          &:hover {
+            color: $color-accent;
+          }
+        }
       }
     }
-
-    p {
-      color: $color-text-muted;
+    
+    // Bouton CV
+    .cv-button {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: $color-accent;
+      color: $color-surface;
+      padding: 0.8rem 1rem;
+      border-radius: $border-radius;
+      font-family: $font-headings;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      
+      i { margin-right: 0.5rem; }
+      
+      &:hover {
+        background: $color-accent-hover;
+        box-shadow: $shadow-hover;
+        transform: translateY(-2px);
+      }
     }
+  }
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: $shadow-hover;
-      border-color: rgba($color-accent, 0.5); // "Glow" au survol
+  // Grille de navigation à droite
+  .nav-dashboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    
+    .card {
+      background: $color-surface;
+      border-radius: $border-radius;
+      padding: 1.5rem;
+      box-shadow: $shadow;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-align: left;
+      border: 1px solid $color-border;
+      opacity: 0;
+      animation: slideUp 0.5s ease-out;
+      animation-fill-mode: forwards;
+
+      // Délai d'animation
+      &:nth-child(1) { animation-delay: 0.35s; }
+      &:nth-child(2) { animation-delay: 0.4s; }
+      &:nth-child(3) { animation-delay: 0.45s; }
+
+      h2 {
+        font-family: $font-headings;
+        font-weight: 600;
+        margin-top: 0;
+        color: $color-accent; // Changé
+        display: flex;
+        align-items: center;
+
+        i {
+          margin-right: 0.75rem;
+          font-size: 1.25rem;
+          width: 20px;
+          text-align: center;
+        }
+      }
+
+      p {
+        color: $color-text-muted; // Changé
+        font-size: 0.95rem;
+      }
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: $shadow-hover;
+        border-color: $color-accent;
+      }
     }
   }
 }
 
-// --- PAGES DE CONTENU ---
+// --- PAGES DE CONTENU (Restylées) ---
 .content {
   max-width: 900px;
   width: 100%;
   box-sizing: border-box;
   margin: 0 auto 2rem auto;
   padding: 2rem 2.5rem;
-  background: $color-surface;
+  background: $color-surface; // Changé
   border-radius: $border-radius;
-  box-shadow: $shadow;
+  box-shadow: $shadow; // Changé
   flex-grow: 1;
   
-  // Animation d'entrée pour le contenu
   opacity: 0;
   animation: slideUp 0.6s ease-out 0.3s;
   animation-fill-mode: forwards;
@@ -195,39 +294,38 @@ body.fade-out {
   }
   
   h2 {
-    color: $color-accent;
-    border-bottom: 2px solid $color-bg; // Ligne de séparation plus sombre
+    color: $color-accent; // Changé
+    border-bottom: 2px solid $color-border; // Changé
     padding-bottom: 0.5rem;
     margin-top: 0;
   }
   
-  // Style global pour les icônes de titre (centralisé)
   h2 i, h3 i {
-    color: $color-accent;
+    color: $color-accent; // Changé
     margin-right: 0.75rem;
     width: 20px;
     text-align: center;
   }
 
   p, li {
-    line-height: 1.7; // Un peu plus aéré
-    color: $color-text-muted;
-    font-weight: 300;
+    line-height: 1.7;
+    color: $color-text-muted; // Changé
+    font-weight: 400; // Un peu plus lisible
   }
   
   strong {
-      color: $color-text; // Met en valeur le texte en gras
-      font-weight: 500;
+      color: $color-text; // Changé
+      font-weight: 600; // Plus fort
   }
 
-  ul:not(.contact-list, .skills-list) {
+  ul:not(.contact-list, .skills-list, .timeline) {
     line-height: 1.7;
     padding-left: 20px;
   }
 }
 
 
-// --- FOOTER ---
+// --- FOOTER (Inchangé) ---
 .footer {
   text-align: center;
   padding: 1rem;
@@ -235,32 +333,38 @@ body.fade-out {
   color: $color-text-muted;
 }
 
-// --- RESPONSIVE ---
+// --- RESPONSIVE (Ajusté) ---
+@media (max-width: 900px) {
+  // Passage en 1 colonne pour le dashboard
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+  .profile-intro {
+    height: auto;
+  }
+}
 @media (max-width: 600px) {
   .header {
-    padding-top: 5rem; // Plus d'espace
+    padding-top: 5rem;
   }
-
   .header .back {
     left: 50%;
     top: 1rem;
     transform: translateX(-50%); 
-    
     &:hover {
       transform: translateX(-50%) scale(1.05);
     }
   }
-  
-  .dashboard {
+  .main-layout {
     padding: 1rem;
   }
-  
   .content {
     padding: 1.5rem 1rem;
   }
 }
 
-// --- NOUVEAUX STYLES (Page Contact) ---
+// --- Page Contact (Restylée) ---
 .contact-list {
   list-style: none;
   padding-left: 0;
@@ -271,28 +375,25 @@ body.fade-out {
     display: flex;
     align-items: center;
   }
-
   i {
-    color: $color-accent;
+    color: $color-accent; // Changé
     width: 40px; 
     font-size: 1.3rem;
     text-align: center;
     margin-right: 10px;
   }
-
   a {
     text-decoration: none;
-    color: $color-text-muted;
+    color: $color-text-muted; // Changé
     font-weight: 500;
     transition: color 0.3s ease;
-  }
-
-  a:hover {
-    color: $color-accent;
+    &:hover {
+      color: $color-accent;
+    }
   }
 }
 
-// --- NOUVEAUX STYLES (Page Compétences) ---
+// --- Page Compétences (Restylée) ---
 .skills-list {
   list-style: none;
   padding-left: 0;
@@ -302,36 +403,36 @@ body.fade-out {
   margin: 1.5rem 0;
 
   li {
-    background: $color-bg; // Fond plus sombre
-    color: $color-accent;
+    background: lighten($color-accent, 38%); // Fond "pill" très clair
+    color: $color-accent-hover; // Texte accentué
     padding: 0.5rem 1rem;
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
     font-family: $font-headings;
-    border: 1px solid $color-accent;
+    border: 1px solid lighten($color-accent, 30%); // Bordure claire
     transition: all 0.3s ease;
 
     &:hover {
-      background: $color-accent;
-      color: $color-bg;
+      background: $color-accent; // Changé
+      color: $color-surface; // Changé
       transform: translateY(-2px);
-      box-shadow: 0 0 15px rgba($color-accent, 0.5);
+      box-shadow: 0 0 15px rgba($color-accent, 0.3);
     }
   }
 }
 
-// --- NOUVEAUX STYLES (Page Projets) ---
+// --- Page Projets (Restylée) ---
 .project-card {
-  background: $color-bg; // Fond plus sombre
+  background: $color-bg; // Fond gris clair
   border-radius: $border-radius;
   padding: 1.5rem 2rem;
   margin-top: 1.5rem;
-  border: 1px solid $color-surface;
+  border: 1px solid $color-border; // Bordure claire
   transition: all 0.3s ease;
 
   &:hover {
-    border-color: rgba($color-accent, 0.5);
+    border-color: $color-accent;
     box-shadow: $shadow;
   }
 
@@ -339,7 +440,7 @@ body.fade-out {
     margin-top: 0;
     display: flex;
     align-items: center;
-    color: $color-text;
+    color: $color-text; // Changé
   }
   
   p {
@@ -349,58 +450,55 @@ body.fade-out {
   p:last-child {
     margin-bottom: 0;
   }
-  // --- NOUVEAUX STYLES (Timeline pour page "À propos") ---
+}
 
-// Conteneur de la timeline
+// --- Timeline (Restylée) ---
 .timeline {
   list-style: none;
   padding-left: 0;
   margin-top: 2rem;
   position: relative;
   
-  // La ligne verticale de la timeline
   &::before {
     content: '';
     position: absolute;
-    left: 4px; // Décale à gauche pour centrer sur le point
+    left: 4px;
     top: 10px;
     bottom: 10px;
     width: 2px;
-    background-color: $color-surface; // Utilise la couleur de fond des cartes
+    background-color: $color-border; // Ligne grise claire
   }
 }
 
-// Chaque item de la timeline
 .timeline-item {
   position: relative;
-  padding-left: 2.5rem; // Espace pour le point et la date
-  padding-bottom: 2rem; // Espace entre les items
+  padding-left: 2.5rem;
+  padding-bottom: 2rem;
 
   &:last-child {
     padding-bottom: 0;
   }
 
-  // Le point sur la ligne
+  // Le point
   &::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 10px; // Aligne avec la première ligne de texte
+    top: 10px;
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: $color-accent;
-    border: 2px solid $color-bg;
+    background-color: $color-accent; // Point accentué
+    border: 2px solid $color-surface; // Bordure blanche
     z-index: 1;
   }
 }
 
-// Le contenu de l'item
 .timeline-content {
-  background: $color-bg; // Fond plus sombre (comme les project-cards)
+  background: $color-bg; // Fond gris clair
   border-radius: $border-radius;
   padding: 1rem 1.5rem;
-  border: 1px solid $color-surface;
+  border: 1px solid $color-border;
   
   h3 {
     margin: 0 0 0.25rem 0;
@@ -414,43 +512,37 @@ body.fade-out {
   }
 }
 
-// La date
 .timeline-date {
   position: absolute;
   left: 2.5rem;
-  top: -0.7rem; // Se place juste au-dessus du contenu
-  color: $color-accent;
+  top: -0.7rem;
+  color: $color-surface; // Texte blanc
   font-family: $font-headings;
   font-weight: 600;
   font-size: 0.85rem;
-  background: $color-surface; // Fond de la page de contenu
-  padding: 0 0.5rem;
+  background: $color-accent; // Fond accentué
+  padding: 0.2rem 0.5rem; // Ajusté
   border-radius: 4px;
 }
 
-// --- Responsive pour la Timeline ---
+// --- Responsive Timeline (Ajusté) ---
 @media (max-width: 600px) {
   .timeline {
     &::before {
-      left: 3px; // Ajuste la ligne
+      left: 3px;
     }
   }
-  
   .timeline-item {
-    padding-left: 2rem; // Réduit l'espace
-    
+    padding-left: 2rem;
     &::before {
       width: 8px;
       height: 8px;
     }
   }
-  
   .timeline-date {
     left: 2rem;
   }
-  
   .timeline-content {
     padding: 0.75rem 1rem;
   }
-}
 }
