@@ -46,28 +46,31 @@ portfolio/
 │               ├── EmailJSSender.js
 │               ├── EmailSender.js
 │               └── FormspreeSender.js
-
 ```
-Lancement
-En local
-Ouvrez directement le fichier index.html dans n'importe quel navigateur (double-clic supporté sans serveur web requis).
+
+## Lancement
+
+### En local
+Ouvrez directement le fichier `index.html` dans n'importe quel navigateur (double-clic supporté sans serveur web requis).
 
 Pour utiliser un serveur local léger :
 
-Bash
-# Avec Python 3
+```bash
 python -m http.server 8000
-Déploiement
+```
+
+### Déploiement
 Le projet est prêt pour un hébergement statique (GitHub Pages, Vercel, Netlify). Il suffit de pousser les fichiers à la racine de la branche de publication.
 
-Configuration
-Mise à jour des informations
-Modifiez les entrées de l'objet global dans assets/data/content.js pour ajouter ou adapter vos expériences, projets, compétences et coordonnées.
+## Configuration
 
-Activation de l'envoi de mail
-Dans assets/js/main.js, remplacez le connecteur de test ConsoleEmailSender par le service de votre choix :
+### Mise à jour des informations
+Modifiez les entrées de l'objet global dans `assets/data/content.js` pour ajouter ou adapter vos expériences, projets, compétences et coordonnées.
 
-JavaScript
+### Activation de l'envoi de mail
+Dans `assets/js/main.js`, remplacez le connecteur de test `ConsoleEmailSender` par le service de votre choix :
+
+```javascript
 // Exemple pour Formspree
 const emailSender = new P.emailSenders.FormspreeSender('[https://formspree.io/f/VOTRE_ID](https://formspree.io/f/VOTRE_ID)');
 
@@ -77,3 +80,4 @@ const emailSender = new P.emailSenders.EmailJSSender({
   templateId: 'VOTRE_TEMPLATE_ID',
   publicKey: 'VOTRE_PUBLIC_KEY'
 });
+```
