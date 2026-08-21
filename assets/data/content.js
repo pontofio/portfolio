@@ -48,8 +48,10 @@ window.PORTFOLIO_CONTENT = {
       "sub": "Unis Cité Beauvais — Ambassadrice du Code",
       "ext": ".log",
       "tag": "2023 — 2024",
-      "desc": "Unis Cité Beauvais — Ambassadrice du Code. 8 mois investie dans la mission « Ambassadeur Du Code et les Connectés » : ateliers de programmation avec Scratch pour des enfants, accompagnement d'adultes et de seniors contre l'illectronisme, organisation logistique dans l'Oise."
-    },
+      "desc": "Unis Cité Beauvais — Ambassadrice du Code. 8 mois investie dans la mission « Ambassadeur Du Code et les Connectés » : ateliers de programmation avec Scratch pour des enfants, accompagnement d'adultes et de seniors contre l'illectronisme, organisation logistique dans l'Oise.",
+      "image": "assets/img/UC.jpg"
+
+	},
     {
       "date": "2022—2023",
       "title": "Aidante",
