@@ -1,4 +1,4 @@
-section{
+section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -8,29 +8,33 @@ section{
   z-index: 1;
 }
 
-section > *{
+/* S'assurer que le contenu passe bien devant le fond */
+section > * {
   width: min(1000px, 84vw);
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  z-index: 1;
 }
 
-section > *:first-child{ margin-top: 48px; }
-section > *:last-child{ margin-bottom: 48px; }
+section > *:first-child { margin-top: 48px; }
+section > *:last-child { margin-bottom: 48px; }
 
-section::before{
+/* Carte de fond correctement positionnée en absolute */
+section::before {
   content: "";
-  position: relative;
+  position: absolute;
   top: 24px;
   bottom: 24px;
-  left: 10vw;
-  right: 10vw;
+  left: 8vw;
+  right: 8vw;
   background: var(--card);
   border-radius: 22px;
   box-shadow: var(--shadow);
   border: 1px solid var(--line);
-  z-index: -1;
+  z-index: 0;
+  pointer-events: none; /* Évite de bloquer les clics */
 }
-
 .skill-groups{
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
