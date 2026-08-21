@@ -1,17 +1,23 @@
-*{ box-sizing: border-box; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-html{ scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
-body{
+body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
 }
 
-/* subtle grid texture, like a desktop */
-body::before{
+/* Quadrillage d'arrière-plan */
+body::before {
   content: "";
   position: fixed;
   inset: 0;
@@ -19,12 +25,23 @@ body::before{
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
   background-size: 48px 48px;
-  opacity: 0.35;
+  opacity: 0.4;
   pointer-events: none;
   z-index: 0;
 }
 
-.eyebrow{
+/* Conteneur principal centré qui passe AU-DESSUS de la grille */
+#app {
+  position: relative;
+  z-index: 1;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 90px 20px 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.eyebrow {
   font-size: 11px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -32,28 +49,28 @@ body::before{
   margin: 0 0 10px;
 }
 
-h1{
-  font-size: clamp(2.2rem, 6vw, 4rem);
-  line-height: 1.05;
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  line-height: 1.1;
   margin: 0 0 14px;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
-h2{
-  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
-  margin: 0 0 40px;
+h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  margin: 0 0 32px;
   font-weight: 600;
 }
 
-p.lead{
-  max-width: 46ch;
+p.lead {
+  max-width: 60ch;
   color: var(--ink-soft);
   font-size: 15px;
   line-height: 1.7;
 }
 
-footer.hint{
+footer.hint {
   position: fixed;
   bottom: 18px;
   left: 50%;
@@ -62,4 +79,7 @@ footer.hint{
   color: var(--ink-soft);
   letter-spacing: 0.03em;
   z-index: 50;
+  background: var(--bg);
+  padding: 4px 10px;
+  border-radius: 4px;
 }

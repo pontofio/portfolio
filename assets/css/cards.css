@@ -1,15 +1,16 @@
-.grid{
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 18px;
-  max-width: 920px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.file-card{
+.file-card {
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 20px 20px 18px;
+  padding: 20px;
   cursor: pointer;
   text-align: left;
   font-family: inherit;
@@ -17,9 +18,11 @@
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.file-card::before{
+.file-card::before {
   content: attr(data-ext);
   position: absolute;
   top: 12px;
@@ -32,18 +35,18 @@
   border-radius: 4px;
 }
 
-.file-card:hover{
+.file-card:hover {
   transform: translateY(-4px);
   border-color: var(--sage);
   box-shadow: var(--shadow-hover);
 }
 
-.file-card .icon{
+.file-card .icon {
   width: 34px;
   height: 34px;
   border-radius: var(--radius-md);
   background: var(--sage);
-  color: var(--card);
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,12 +54,12 @@
   margin-bottom: 16px;
 }
 
-.file-card h3{
+.file-card h3 {
   font-size: 15px;
   margin: 0 0 6px;
 }
 
-.file-card span.desc{
+.file-card span.desc {
   font-size: 12.5px;
   color: var(--ink-soft);
   line-height: 1.5;
