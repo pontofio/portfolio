@@ -56,16 +56,16 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
   const { el } = window.Portfolio;
 
   function openableAttrs(item, { title, tag, desc, stack, ext, image }) {
-    return {
-      class: 'file-card',
-      'data-ext': ext || '',
-      'data-title': title,
-      'data-tag': tag || '',
-      'data-desc': desc || '',
-      'data-image': image || item.image || '',
-      'data-stack': (stack || []).join(', '),
-    };
-  }
+	  return {
+		class: 'file-card',
+		'data-ext': ext || '',
+		'data-title': title,
+		'data-tag': tag || '',
+		'data-desc': desc || '',
+		'data-image': image || item.image || '',
+		'data-stack': (stack || []).join(', '),
+	  };
+	}
 
   window.Portfolio.renderHero = function renderHero(profile) {
 	  const content = el('div', { class: 'hero-content' }, [
