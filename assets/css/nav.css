@@ -4,8 +4,9 @@ nav.dock {
   left: 50%;
   transform: translateX(-50%);
   display: flex;
+  align-items: center;
   gap: 0.25rem;
-  background: #ffffff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 0.35rem;
@@ -15,6 +16,75 @@ nav.dock {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+}
+
+.theme-toggle-switch {
+  position: fixed;
+  top: clamp(0.75rem, 2vw, 1.5rem);
+  right: clamp(0.75rem, 2vw, 1.5rem);
+  z-index: 200;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+.switch-track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 56px;
+  height: 28px;
+  background-color: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 0 6px;
+  box-shadow: var(--shadow-soft);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.switch-icon-left,
+.switch-icon-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  z-index: 1;
+  width: 14px;
+  height: 14px;
+  transition: color 0.3s ease;
+}
+
+.switch-thumb {
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  width: 22px;
+  height: 22px;
+  background-color: var(--sage);
+  border-radius: 50%;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s ease;
+  z-index: 2;
+}
+
+.theme-toggle-switch.is-dark .switch-thumb {
+  transform: translateX(26px);
+}
+
+.theme-toggle-switch.is-dark .switch-icon-right {
+  color: #ffffff;
+}
+
+.theme-toggle-switch:not(.is-dark) .switch-icon-left {
+  color: #ffffff;
+}
+.theme-toggle-btn:hover {
+  background: var(--bg-soft);
+  color: var(--sage);
+  border-color: var(--sage);
 }
 
 nav.dock::-webkit-scrollbar {

@@ -19,6 +19,7 @@ window.Portfolio.WindowController = class WindowController {
     this.tagEl = windowEl.querySelector('#win-tag');
     this.descEl = windowEl.querySelector('#win-desc');
     this.stackEl = windowEl.querySelector('#win-stack');
+	this.imgEl = windowEl.querySelector('#win-img');
 
     this.closeBtn.addEventListener('click', () => this.close());
     this.overlay.addEventListener('click', (e) => {
@@ -34,12 +35,20 @@ window.Portfolio.WindowController = class WindowController {
     this.windowEl.style.setProperty('--origin-x', `${rect.left + rect.width / 2}px`);
     this.windowEl.style.setProperty('--origin-y', `${rect.top + rect.height / 2}px`);
 
-    const { title, tag, desc, stack } = sourceEl.dataset;
+    const { title, tag, desc, stack, image } = sourceEl.dataset;
+	this.pathEl.textContent = title || '';
+	this.titleEl.textContent = title || '';
+	this.tagEl.textContent = tag || '';
+	this.descEl.textContent = desc || '';
 
-    this.pathEl.textContent = title || '';
-    this.titleEl.textContent = title || '';
-    this.tagEl.textContent = tag || '';
-    this.descEl.textContent = desc || '';
+	if (image) {
+	  this.imgEl.src = image;
+	  this.imgEl.alt = title || '';
+	  this.imgEl.style.display = 'block';
+	} else {
+	  this.imgEl.src = '';
+	  this.imgEl.style.display = 'none';
+	}
 
     this.stackEl.innerHTML = '';
     (stack || '')

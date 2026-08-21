@@ -2,7 +2,7 @@ section {
   width: 100%;
   margin: clamp(1.75rem, 4vw, 3rem) auto;
   padding: clamp(1.5rem, 4vw, 3rem);
-  background-color: #ffffff;
+  background-color: var(--surface);
   border-radius: var(--radius-xl);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
@@ -45,6 +45,41 @@ section > * {
   padding-left: 1rem;
   position: relative;
   line-height: 1.4;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.hero-section > .hero-content {
+  width: auto;
+  flex: 1;
+}
+
+.hero-photo {
+  width: clamp(140px, 16vw, 180px);
+  height: clamp(140px, 16vw, 180px);
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 3px solid var(--sage);
+  flex-shrink: 0;
+  margin: 0;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .hero-section > .hero-content {
+    width: 100%;
+  }
 }
 
 .skill-group li::before {

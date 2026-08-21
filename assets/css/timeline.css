@@ -24,10 +24,11 @@
   width: 0.65rem;
   height: 0.65rem;
   border-radius: 50%;
-  background: #ffffff;
+  background: var(--surface);
   border: 2px solid var(--sage);
   transition: background 0.2s ease, transform 0.2s ease;
 }
+
 
 .t-item:hover::before {
   background: var(--sage);

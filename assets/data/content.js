@@ -3,7 +3,8 @@ window.PORTFOLIO_CONTENT = {
     "name": "Fiona Pontoparia",
     "subtitle": "Apprentie Ingénieure en Informatique Engagée et Réflexive",
     "bio": "Passionnée par la création numérique et la résolution de problèmes, je conçois des sites web et des logiciels performants et utiles.",
-    "email": "pontofiona@gmail.com"
+    "email": "pontofiona@gmail.com",
+	"photo": "assets/img/selfi.jpg"
   },
   "nav": [
     {
@@ -38,7 +39,8 @@ window.PORTFOLIO_CONTENT = {
       "sub": "Apprentie Ingénieure Informatique",
       "ext": ".log",
       "tag": "2024 — aujourd'hui",
-      "desc": "Apprentie Ingénieure Informatique. J'ai rejoint l'Itii Picardie pour concrétiser mon projet professionnel et obtenir mon diplôme d'ingénieure par la voie de l'apprentissage."
+      "desc": "Apprentie Ingénieure Informatique. J'ai rejoint l'Itii Picardie pour concrétiser mon projet professionnel et obtenir mon diplôme d'ingénieure par la voie de l'apprentissage.",
+	  "image": "assets/img/FA27INFO.jpg"
     },
     {
       "date": "2023—2024",
@@ -97,7 +99,8 @@ window.PORTFOLIO_CONTENT = {
       "shortDesc": "Saverglass — sécurité SI",
       "tag": "Saverglass · Depuis janv. 2025",
       "desc": "Projet transverse de grande ampleur visant à renforcer la sécurité de l'entreprise par le déploiement d'une nouvelle politique de mots de passe sur l'ensemble des systèmes d'information. Mise en production prévue le 4 novembre 2025. Mon rôle : analyse des impacts sur les différentes applications, coordination des tests, préparation du déploiement.",
-      "stack": [
+      "image": "assets/img/mdp.png",
+	  "stack": [
         "Analyse d'impact",
         "Tests",
         "Coordination"
@@ -135,7 +138,8 @@ window.PORTFOLIO_CONTENT = {
       "shortDesc": "Formula Student — Itii Picardie",
       "tag": "Itii Picardie · Projet de formation",
       "desc": "Réalisation d'un cahier des charges pour le concours Formula Student. Travail collectif impliquant l'analyse des besoins techniques et réglementaires, la définition des spécifications et la structuration du document.",
-      "stack": [
+      "image": "assets/img/Formula.png",
+	  "stack": [
         "Analyse fonctionnelle",
         "Gestion des exigences",
         "Travail d'équipe"
@@ -192,7 +196,8 @@ window.PORTFOLIO_CONTENT = {
         "shortDesc": "Unis Cité Beauvais",
         "tag": "Oct. 2023 — Juin 2024",
         "desc": "Mission « Ambassadrice du Code et les Connectés ». Initiation à la programmation avec Scratch pour des enfants, lutte contre l'illectronisme auprès d'adultes et de seniors, organisation logistique des interventions à travers l'Oise (écoles, centres sociaux).",
-        "stack": [
+        "image": "assets/img/UC.jpg",
+		"stack": [
           "Pédagogie",
           "Inclusion numérique"
         ]
