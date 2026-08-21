@@ -167,6 +167,16 @@ window.PORTFOLIO_CONTENT = {
         "Animations CSS (confirmé par MOOC)"
       ]
     },
+	{
+      "title": "Éthique & Responsabilité",
+      "items": [
+        "RGPD & Protection des données (sécurisation des accès et conformité)",
+        "Inclusion & Accessibilité numérique (vulgarisation et ergonomie)",
+        "Écoconception logicielle (sobriété du code et optimisation des flux)",
+        "Posture réflexive & Déontologie (analyse des impacts sociétaux et éthique de l'ingénieur)"
+      ]
+    },
+	  
     {
       "title": "Systèmes & outils",
       "items": [
