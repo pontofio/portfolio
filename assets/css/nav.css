@@ -1,70 +1,36 @@
-nav.dock{
-  position: fixed;
-  top: 24px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 4px;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-lg);
-  padding: 6px;
-  box-shadow: var(--shadow-soft);
-  z-index: 100;
-  flex-wrap: wrap;
-  max-width: 92vw;
-  justify-content: center;
-}
-
-nav.dock a{
-  text-decoration: none;
-  color: var(--ink-soft);
-  font-size: 12px;
-  letter-spacing: 0.04em;
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  transition: background 0.2s ease, color 0.2s ease;
-  position: relative;
-}
-
-nav.dock a.active{
-  color: var(--card);
-  background: var(--sage);
-}
-
-nav.dock a:not(.active):hover{
-  background: var(--bg-soft);
-  color: var(--ink);
-}
-
-
 nav.dock {
   position: fixed;
-  top: 24px;
+  top: clamp(0.75rem, 2vw, 1.5rem);
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 4px;
+  gap: 0.25rem;
   background: #ffffff;
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 6px;
+  padding: 0.35rem;
   box-shadow: var(--shadow-soft);
   z-index: 100;
-  flex-wrap: wrap;
-  max-width: 92vw;
-  justify-content: center;
+  max-width: 94vw;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+nav.dock::-webkit-scrollbar {
+  display: none;
 }
 
 nav.dock a {
   text-decoration: none;
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
   letter-spacing: 0.04em;
-  padding: 8px 14px;
+  padding: 0.5rem clamp(0.6rem, 1.5vw, 0.9rem);
   border-radius: var(--radius-sm);
   transition: background 0.2s ease, color 0.2s ease;
-  position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 nav.dock a.active {

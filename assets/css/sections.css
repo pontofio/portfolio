@@ -1,9 +1,9 @@
 section {
   width: 100%;
-  margin: 40px auto;
-  padding: 40px;
-  background-color: #ffffff; /* Fond opaque pour masquer le quadrillage */
-  border-radius: 18px;
+  margin: clamp(1.75rem, 4vw, 3rem) auto;
+  padding: clamp(1.5rem, 4vw, 3rem);
+  background-color: #ffffff;
+  border-radius: var(--radius-xl);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
   box-sizing: border-box;
@@ -18,16 +18,16 @@ section > * {
 
 .skill-groups {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  gap: clamp(1.2rem, 3vw, 1.75rem);
 }
 
 .skill-group h4 {
-  font-size: 11px;
+  font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--sage-dark);
-  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
 }
 
 .skill-group ul {
@@ -36,14 +36,15 @@ section > * {
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .skill-group li {
-  font-size: 13px;
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
   color: var(--ink);
-  padding-left: 14px;
+  padding-left: 1rem;
   position: relative;
+  line-height: 1.4;
 }
 
 .skill-group li::before {

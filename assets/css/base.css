@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 100%;
 }
 
 body {
@@ -11,12 +12,12 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-main);
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
   -webkit-font-smoothing: antialiased;
   position: relative;
   min-height: 100vh;
 }
 
-/* Quadrillage d'arrière-plan */
 body::before {
   content: "";
   position: fixed;
@@ -24,62 +25,69 @@ body::before {
   background-image:
     linear-gradient(var(--line) 1px, transparent 1px),
     linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-size: clamp(2rem, 4vw, 3rem) clamp(2rem, 4vw, 3rem);
   opacity: 0.4;
   pointer-events: none;
   z-index: 0;
 }
 
-/* Conteneur principal centré qui passe AU-DESSUS de la grille */
 #app {
   position: relative;
   z-index: 1;
-  max-width: 960px;
+  width: min(62rem, 92vw);
   margin: 0 auto;
-  padding: 90px 20px 60px;
-  width: 100%;
-  box-sizing: border-box;
+  padding: clamp(4.5rem, 10vw, 6.5rem) 0 clamp(3rem, 6vw, 5rem);
 }
 
 .eyebrow {
-  font-size: 11px;
+  font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--sage-dark);
-  margin: 0 0 10px;
+  margin: 0 0 0.75rem;
 }
 
 h1 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-size: clamp(2rem, 1.4rem + 2.8vw, 3.8rem);
   line-height: 1.1;
-  margin: 0 0 14px;
+  margin: 0 0 1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
 }
 
 h2 {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  margin: 0 0 32px;
+  font-size: clamp(1.4rem, 1.1rem + 1.4vw, 2.3rem);
+  line-height: 1.2;
+  margin: 0 0 1.75rem;
   font-weight: 600;
 }
 
 p.lead {
-  max-width: 60ch;
+  max-width: 58ch;
   color: var(--ink-soft);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.15rem);
+  line-height: 1.75;
+  margin: 0;
 }
 
 footer.hint {
   position: fixed;
-  bottom: 18px;
+  bottom: clamp(0.5rem, 2vh, 1.2rem);
   left: 50%;
   transform: translateX(-50%);
-  font-size: 11px;
+  font-size: clamp(0.65rem, 0.6rem + 0.2vw, 0.75rem);
   color: var(--ink-soft);
   letter-spacing: 0.03em;
   z-index: 50;
   background: var(--bg);
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  footer.hint {
+    display: none;
+  }
 }

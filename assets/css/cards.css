@@ -1,7 +1,7 @@
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: clamp(1rem, 2.5vw, 1.4rem);
   width: 100%;
   box-sizing: border-box;
 }
@@ -10,7 +10,7 @@
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
-  padding: 20px;
+  padding: clamp(1.1rem, 2.5vw, 1.4rem);
   cursor: pointer;
   text-align: left;
   font-family: inherit;
@@ -25,42 +25,44 @@
 .file-card::before {
   content: attr(data-ext);
   position: absolute;
-  top: 12px;
-  right: 14px;
-  font-size: 10px;
+  top: 0.75rem;
+  right: 0.85rem;
+  font-size: clamp(0.6rem, 0.55rem + 0.2vw, 0.7rem);
   letter-spacing: 0.06em;
   color: var(--sage-dark);
   background: var(--bg-soft);
-  padding: 3px 7px;
-  border-radius: 4px;
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-sm);
 }
 
 .file-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-0.25rem);
   border-color: var(--sage);
   box-shadow: var(--shadow-hover);
 }
 
 .file-card .icon {
-  width: 34px;
-  height: 34px;
+  width: 2.25rem;
+  height: 2.25rem;
   border-radius: var(--radius-md);
   background: var(--sage);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
-  margin-bottom: 16px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .file-card h3 {
-  font-size: 15px;
-  margin: 0 0 6px;
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.15rem);
+  margin: 0 0 0.4rem;
+  line-height: 1.3;
 }
 
 .file-card span.desc {
-  font-size: 12.5px;
+  font-size: clamp(0.8rem, 0.75rem + 0.2vw, 0.9rem);
   color: var(--ink-soft);
   line-height: 1.5;
+  display: block;
 }

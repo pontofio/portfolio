@@ -1,17 +1,11 @@
-/**
- * Custom cursor component.
- * A small ring that trails the pointer and expands over clickable
- * elements. Disabled on touch devices and when the user prefers reduced
- * motion — the native cursor stays in both cases.
- */
-@media (hover: hover) and (pointer: fine){
+@media (hover: hover) and (pointer: fine) {
   body.custom-cursor-active,
-  body.custom-cursor-active *{
+  body.custom-cursor-active * {
     cursor: none;
   }
 
   .cursor-dot,
-  .cursor-ring{
+  .cursor-ring {
     position: fixed;
     top: 0;
     left: 0;
@@ -21,33 +15,36 @@
     transform: translate(-50%, -50%);
   }
 
-  .cursor-dot{
-    width: 6px;
-    height: 6px;
+  .cursor-dot {
+    width: 0.375rem;
+    height: 0.375rem;
     background: var(--sage-dark);
   }
 
-  .cursor-ring{
-    width: 32px;
-    height: 32px;
+  .cursor-ring {
+    width: 2rem;
+    height: 2rem;
     border: 1px solid var(--sage);
     transition: width 0.2s var(--ease-out), height 0.2s var(--ease-out),
                 border-color 0.2s ease, background 0.2s ease;
   }
 
-  .cursor-ring.is-active{
-    width: 52px;
-    height: 52px;
-    background: rgba(111,143,106,0.12);
+  .cursor-ring.is-active {
+    width: 3.25rem;
+    height: 3.25rem;
+    background: rgba(111, 143, 106, 0.12);
     border-color: var(--sage-dark);
   }
 }
 
-@media (prefers-reduced-motion: reduce){
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
   .cursor-dot,
-  .cursor-ring{ display: none; }
+  .cursor-ring {
+    display: none !important;
+  }
+
   body.custom-cursor-active,
-  body.custom-cursor-active *{
+  body.custom-cursor-active * {
     cursor: auto;
   }
 }

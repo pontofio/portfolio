@@ -1,6 +1,6 @@
 .timeline {
   list-style: none;
-  padding-left: 28px;
+  padding-left: clamp(1.2rem, 3vw, 2rem);
   margin: 0;
   position: relative;
   border-left: 2px solid var(--line);
@@ -8,7 +8,7 @@
 
 .t-item {
   position: relative;
-  padding-bottom: 26px;
+  padding-bottom: clamp(1.25rem, 3vw, 1.75rem);
   cursor: pointer;
 }
 
@@ -19,10 +19,10 @@
 .t-item::before {
   content: "";
   position: absolute;
-  left: -34px;
-  top: 4px;
-  width: 10px;
-  height: 10px;
+  left: calc(-1 * clamp(1.2rem, 3vw, 2rem) - 0.35rem);
+  top: 0.3rem;
+  width: 0.65rem;
+  height: 0.65rem;
   border-radius: 50%;
   background: #ffffff;
   border: 2px solid var(--sage);
@@ -31,30 +31,30 @@
 
 .t-item:hover::before {
   background: var(--sage);
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 .t-row {
   display: flex;
   align-items: baseline;
-  gap: 16px;
+  gap: clamp(0.5rem, 2vw, 1.25rem);
   flex-wrap: wrap;
 }
 
 .t-date {
-  font-size: 11px;
+  font-size: clamp(0.7rem, 0.65rem + 0.2vw, 0.8rem);
   color: var(--sage-dark);
   letter-spacing: 0.04em;
-  min-width: 80px;
+  min-width: 5.5rem;
 }
 
 .t-title {
-  font-size: 14.5px;
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
   font-weight: 600;
 }
 
 .t-sub {
-  font-size: 12.5px;
+  font-size: clamp(0.8rem, 0.75rem + 0.2vw, 0.9rem);
   color: var(--ink-soft);
-  margin-top: 2px;
+  margin-top: 0.2rem;
 }
