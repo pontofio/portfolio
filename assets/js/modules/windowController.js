@@ -36,19 +36,21 @@ window.Portfolio.WindowController = class WindowController {
     this.windowEl.style.setProperty('--origin-y', `${rect.top + rect.height / 2}px`);
 
     const { title, tag, desc, stack, image } = sourceEl.dataset;
-	this.pathEl.textContent = title || '';
-	this.titleEl.textContent = title || '';
-	this.tagEl.textContent = tag || '';
-	this.descEl.textContent = desc || '';
+    this.pathEl.textContent = title || '';
+    this.titleEl.textContent = title || '';
+    this.tagEl.textContent = tag || '';
+    this.descEl.textContent = desc || '';
 
-	if (image) {
-	  this.imgEl.src = image;
-	  this.imgEl.alt = title || '';
-	  this.imgEl.style.display = 'block';
-	} else {
-	  this.imgEl.src = '';
-	  this.imgEl.style.display = 'none';
-	}
+    if (this.imgEl) {
+      if (image) {
+        this.imgEl.src = image;
+        this.imgEl.alt = title || '';
+        this.imgEl.style.display = 'block';
+      } else {
+        this.imgEl.src = '';
+        this.imgEl.style.display = 'none';
+      }
+    }
 
     this.stackEl.innerHTML = '';
     (stack || '')
