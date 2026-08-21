@@ -1,0 +1,53 @@
+/**
+ * Custom cursor component.
+ * A small ring that trails the pointer and expands over clickable
+ * elements. Disabled on touch devices and when the user prefers reduced
+ * motion — the native cursor stays in both cases.
+ */
+@media (hover: hover) and (pointer: fine){
+  body.custom-cursor-active,
+  body.custom-cursor-active *{
+    cursor: none;
+  }
+
+  .cursor-dot,
+  .cursor-ring{
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2000;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-dot{
+    width: 6px;
+    height: 6px;
+    background: var(--sage-dark);
+  }
+
+  .cursor-ring{
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--sage);
+    transition: width 0.2s var(--ease-out), height 0.2s var(--ease-out),
+                border-color 0.2s ease, background 0.2s ease;
+  }
+
+  .cursor-ring.is-active{
+    width: 52px;
+    height: 52px;
+    background: rgba(111,143,106,0.12);
+    border-color: var(--sage-dark);
+  }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .cursor-dot,
+  .cursor-ring{ display: none; }
+  body.custom-cursor-active,
+  body.custom-cursor-active *{
+    cursor: auto;
+  }
+}

@@ -1,0 +1,63 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+  max-width: 920px;
+}
+
+.file-card{
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 20px 20px 18px;
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--ink);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.file-card::before{
+  content: attr(data-ext);
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--sage-dark);
+  background: var(--bg-soft);
+  padding: 3px 7px;
+  border-radius: 4px;
+}
+
+.file-card:hover{
+  transform: translateY(-4px);
+  border-color: var(--sage);
+  box-shadow: var(--shadow-hover);
+}
+
+.file-card .icon{
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-md);
+  background: var(--sage);
+  color: var(--card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  margin-bottom: 16px;
+}
+
+.file-card h3{
+  font-size: 15px;
+  margin: 0 0 6px;
+}
+
+.file-card span.desc{
+  font-size: 12.5px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}

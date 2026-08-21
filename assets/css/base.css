@@ -1,0 +1,65 @@
+*{ box-sizing: border-box; }
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* subtle grid texture, like a desktop */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.35;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.eyebrow{
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--sage-dark);
+  margin: 0 0 10px;
+}
+
+h1{
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.05;
+  margin: 0 0 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h2{
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  margin: 0 0 40px;
+  font-weight: 600;
+}
+
+p.lead{
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+footer.hint{
+  position: fixed;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.03em;
+  z-index: 50;
+}
