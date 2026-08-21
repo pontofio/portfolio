@@ -46,6 +46,8 @@ portfolio/
 │               ├── EmailJSSender.js
 │               ├── EmailSender.js
 │               └── FormspreeSender.js
+
+```
 Lancement
 En local
 Ouvrez directement le fichier index.html dans n'importe quel navigateur (double-clic supporté sans serveur web requis).
