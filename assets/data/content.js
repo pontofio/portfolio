@@ -1,10 +1,11 @@
 window.PORTFOLIO_CONTENT = {
   "profile": {
     "name": "Fiona Pontoparia",
-    "subtitle": "Apprentie Ingénieure en Informatique Engagée et Réflexive",
-    "bio": "Passionnée par la création numérique et la résolution de problèmes, je conçois des sites web et des logiciels performants et utiles.",
+    "subtitle": "Apprentie Cheffe de Projet Études et Développement",
+    "bio": "À l'interface entre les besoins métiers et les équipes techniques, je pilote le cycle de vie des projets applicatifs, du cadrage initial jusqu'au déploiement opérationnel.",
+    "location": "Beauvais et ses alentours · Permis B et A1",
     "email": "pontofiona@gmail.com",
-	"photo": "assets/img/selfi.jpg"
+    "photo": "assets/img/selfi.jpg"
   },
   "nav": [
     {
