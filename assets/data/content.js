@@ -41,7 +41,7 @@ window.PORTFOLIO_CONTENT = {
       "ext": ".log",
       "tag": "2024 — aujourd'hui",
       "desc": "Apprentie Ingénieure Informatique. J'ai rejoint l'Itii Picardie pour concrétiser mon projet professionnel et obtenir mon diplôme d'ingénieure par la voie de l'apprentissage.",
-	  "image": "assets/img/FA27INFO.jpg"
+      "image": "assets/img/FA27INFO.jpg"
     },
     {
       "date": "2023—2024",
@@ -51,8 +51,7 @@ window.PORTFOLIO_CONTENT = {
       "tag": "2023 — 2024",
       "desc": "Unis Cité Beauvais — Ambassadrice du Code. 8 mois investie dans la mission « Ambassadeur Du Code et les Connectés » : ateliers de programmation avec Scratch pour des enfants, accompagnement d'adultes et de seniors contre l'illectronisme, organisation logistique dans l'Oise.",
       "image": "assets/img/UC.jpg"
-
-	},
+    },
     {
       "date": "2022—2023",
       "title": "Aidante",
@@ -88,14 +87,13 @@ window.PORTFOLIO_CONTENT = {
     {
       "date": "2017",
       "title": "Bac S — Spé ISN",
-      "sub": "Lycée Évariste Gallois",
+      "sub": "Lycée Évariste Galois",
       "ext": ".log",
       "tag": "2017",
-      "desc": "Lycée Évariste Gallois — le point de départ du chemin vers l'informatique."
+      "desc": "Lycée Évariste Galois — le point de départ du chemin vers l'informatique."
     }
   ],
   "projects": [
-	"projects": [
     {
       "icon": "ERP",
       "ext": ".app",
@@ -174,7 +172,6 @@ window.PORTFOLIO_CONTENT = {
       ]
     }
   ],
-  ],
   "skillGroups": [
     {
       "title": "Langages",
@@ -194,7 +191,6 @@ window.PORTFOLIO_CONTENT = {
         "Animations CSS (confirmé par MOOC)"
       ]
     },
-	
     {
       "title": "Systèmes & outils",
       "items": [
@@ -215,7 +211,7 @@ window.PORTFOLIO_CONTENT = {
         "Polyvalence & adaptabilité"
       ]
     },
-	  {
+    {
       "title": "Éthique & Responsabilité",
       "items": [
         "RGPD & Protection des données (sécurisation des accès et conformité)",
@@ -224,7 +220,6 @@ window.PORTFOLIO_CONTENT = {
         "Posture réflexive & Déontologie (analyse des impacts sociétaux et éthique de l'ingénieur)"
       ]
     }
-	  
   ],
   "ethics": {
     "intro": "Pour moi, le rôle de l'ingénieur ne se limite pas à la technique : c'est un engagement à utiliser nos compétences pour avoir un impact positif et rendre la technologie accessible à tous.",
@@ -237,7 +232,7 @@ window.PORTFOLIO_CONTENT = {
         "tag": "Oct. 2023 — Juin 2024",
         "desc": "Mission « Ambassadrice du Code et les Connectés ». Initiation à la programmation avec Scratch pour des enfants, lutte contre l'illectronisme auprès d'adultes et de seniors, organisation logistique des interventions à travers l'Oise (écoles, centres sociaux).",
         "image": "assets/img/UC.jpg",
-		"stack": [
+        "stack": [
           "Pédagogie",
           "Inclusion numérique"
         ]
