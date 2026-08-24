@@ -3,7 +3,6 @@ window.Portfolio = window.Portfolio || {};
 window.Portfolio.renderNav = function renderNav(navItems, container) {
   const { el } = window.Portfolio;
   container.innerHTML = '';
-
   navItems.forEach((item, index) => {
     const link = el(
       'a',
@@ -26,7 +25,7 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
   const switchBtn = el('button', {
     id: 'themeSwitch',
     class: 'theme-toggle-switch',
-    'aria-label': 'Changer de thème',
+    'aria-label': 'Changer de theme',
     type: 'button',
     html: `<span class="switch-track"><span class="switch-icon-left">${sunSvg}</span><span class="switch-icon-right">${moonSvg}</span><span class="switch-thumb"></span></span>`
   });
@@ -52,65 +51,100 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
 
   document.body.appendChild(switchBtn);
 };
+
 (function () {
   const { el } = window.Portfolio;
 
   function openableAttrs(item, { title, tag, desc, stack, ext, image }) {
-	  return {
-		class: 'file-card',
-		'data-ext': ext || '',
-		'data-title': title,
-		'data-tag': tag || '',
-		'data-desc': desc || '',
-		'data-image': image || item.image || '',
-		'data-stack': (stack || []).join(', '),
-	  };
-	}
-
-  window.Portfolio.renderHero = function renderHero(profile) {
-  const downloadIcon = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
-
-  const cvDropdown = el('div', { class: 'cv-dropdown' }, [
-    el('button', { class: 'btn-cv', type: 'button', html: `${downloadIcon} <span>Mon CV</span>` }),
-    el('div', { class: 'cv-menu' }, [
-      el('a', { href: 'assets/CV.pdf', target: '_blank', rel: 'noopener noreferrer' }, 'Ouvrir (Aperçu)'),
-      el('a', { href: 'assets/CV.pdf', download: 'CV_Fiona_Pontoparia.pdf' }, 'Télécharger (.PDF)'),
-      el('a', { href: 'assets/img/CV.jpg', download: 'CV_Fiona_Pontoparia.jpg' }, 'Télécharger (.JPG)')
-    ])
-  ]);
-
-  const cvBtn = cvDropdown.querySelector('.btn-cv');
-  const cvMenu = cvDropdown.querySelector('.cv-menu');
-
-  cvBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    cvMenu.classList.toggle('is-open');
-  });
-
-  document.addEventListener('click', (e) => {
-    if (!cvDropdown.contains(e.target)) {
-      cvMenu.classList.remove('is-open');
-    }
-  });
-
-  const content = el('div', { class: 'hero-content' }, [
-    el('p', { class: 'eyebrow' }, '~/portfolio'),
-    el('h1', {}, profile.name),
-    el('h3', { class: 'hero-subtitle' }, profile.subtitle),
-    el('p', { class: 'lead' }, profile.bio),
-    profile.location ? el('p', { class: 'hero-location' }, `📍 ${profile.location}`) : null,
-    cvDropdown
-  ]);
-
-  const children = [content];
-  if (profile.photo) {
-    children.push(
-      el('img', { src: profile.photo, alt: profile.name, class: 'hero-photo' })
-    );
+    return {
+      class: 'file-card',
+      'data-ext': ext || '',
+      'data-title': title,
+      'data-tag': tag || '',
+      'data-desc': desc || '',
+      'data-image': image || item.image || '',
+      'data-stack': (stack || []).join(', '),
+    };
   }
 
-  return el('section', { id: 'accueil', class: 'hero-section' }, children);
-};
+  window.Portfolio.renderHero = function renderHero(profile) {
+    const downloadIcon = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+
+    const cvDropdown = el('div', { class: 'cv-dropdown' }, [
+      el('button', { class: 'btn-cv', type: 'button', html: `${downloadIcon} <span>Mon CV</span>` }),
+      el('div', { class: 'cv-menu' }, [
+        el('a', { href: 'assets/CV.pdf', target: '_blank', rel: 'noopener noreferrer' }, 'Ouvrir (Apercu)'),
+        el('a', { href: 'assets/CV.pdf', download: 'CV_Fiona_Pontoparia.pdf' }, 'Telecharger (.PDF)'),
+        el('a', { href: 'assets/img/CV.jpg', download: 'CV_Fiona_Pontoparia.jpg' }, 'Telecharger (.JPG)')
+      ])
+    ]);
+
+    const cvBtn = cvDropdown.querySelector('.btn-cv');
+    const cvMenu = cvDropdown.querySelector('.cv-menu');
+
+    cvBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      cvMenu.classList.toggle('is-open');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!cvDropdown.contains(e.target)) {
+        cvMenu.classList.remove('is-open');
+      }
+    });
+
+    const content = el('div', { class: 'hero-content' }, [
+      el('p', { class: 'eyebrow' }, '~/portfolio'),
+      el('h1', {}, profile.name),
+      el('h3', { class: 'hero-subtitle' }, profile.subtitle),
+      el('p', { class: 'lead' }, profile.bio),
+      profile.location ? el('p', { class: 'hero-location' }, profile.location) : null,
+      cvDropdown
+    ]);
+
+    const children = [content];
+    if (profile.photo) {
+      children.push(
+        el('img', { src: profile.photo, alt: profile.name, class: 'hero-photo' })
+      );
+    }
+
+    return el('section', { id: 'accueil', class: 'hero-section' }, children);
+  };
+
+  window.Portfolio.renderTimeline = function renderTimeline(timeline) {
+    const list = el(
+      'ul',
+      { class: 'timeline' },
+      timeline.map((entry) =>
+        el(
+          'li',
+          {
+            class: 't-item',
+            'data-ext': entry.ext || '',
+            'data-title': entry.title,
+            'data-tag': entry.tag || entry.date,
+            'data-desc': entry.desc,
+            'data-image': entry.image || '',
+          },
+          [
+            el('div', { class: 't-row' }, [
+              el('span', { class: 't-date' }, entry.date),
+              el('div', {}, [
+                el('div', { class: 't-title' }, entry.title),
+                el('div', { class: 't-sub' }, entry.sub),
+              ]),
+            ]),
+          ]
+        )
+      )
+    );
+    return el('section', { id: 'parcours' }, [
+      el('p', { class: 'eyebrow' }, '01 /parcours'),
+      el('h2', {}, 'Journal des evenements'),
+      list,
+    ]);
+  };
 
   window.Portfolio.renderSkills = function renderSkills(skillGroups) {
     const groups = el(
@@ -129,51 +163,51 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
     );
     return el('section', { id: 'competences' }, [
       el('p', { class: 'eyebrow' }, '03 /competences'),
-      el('h2', {}, 'Répertoire des compétences'),
+      el('h2', {}, 'Repertoire des competences'),
       groups,
     ]);
   };
 
   window.Portfolio.renderProjects = function renderProjects(projects) {
-	  const grid = el(
-		'div',
-		{ class: 'grid' },
-		projects.map((project) =>
-		  el('button', openableAttrs(project, project), [
-			el('div', { class: 'icon' }, project.icon),
-			el('h3', {}, project.title),
-			el('span', { class: 'desc' }, project.shortDesc),
-			el('span', { class: 'card-link' }, '→ voir détails'),
-		  ])
-		)
-	  );
-	  return el('section', { id: 'projets' }, [
-		el('p', { class: 'eyebrow' }, '02 /projets'),
-		el('h2', {}, 'Fichiers du dossier'),
-		grid,
-	  ]);
-	};
+    const grid = el(
+      'div',
+      { class: 'grid' },
+      projects.map((project) =>
+        el('button', openableAttrs(project, project), [
+          el('div', { class: 'icon' }, project.icon),
+          el('h3', {}, project.title),
+          el('span', { class: 'desc' }, project.shortDesc),
+          el('span', { class: 'card-link' }, '-> voir details'),
+        ])
+      )
+    );
+    return el('section', { id: 'projets' }, [
+      el('p', { class: 'eyebrow' }, '02 /projets'),
+      el('h2', {}, 'Fichiers du dossier'),
+      grid,
+    ]);
+  };
 
- window.Portfolio.renderEthics = function renderEthics(ethics) {
-	  const grid = el(
-		'div',
-		{ class: 'grid' },
-		ethics.items.map((item) =>
-		  el('button', openableAttrs(item, item), [
-			el('div', { class: 'icon' }, item.icon),
-			el('h3', {}, item.title),
-			el('span', { class: 'desc' }, item.shortDesc),
-			el('span', { class: 'card-link' }, '→ voir détails'),
-		  ])
-		)
-	  );
-	  return el('section', { id: 'ethique' }, [
-		el('p', { class: 'eyebrow' }, '04 /ethique'),
-		el('h2', {}, 'Notes de bas de page'),
-		el('p', { class: 'lead', style: 'margin-bottom:36px;' }, ethics.intro),
-		grid,
-	  ]);
-	};
+  window.Portfolio.renderEthics = function renderEthics(ethics) {
+    const grid = el(
+      'div',
+      { class: 'grid' },
+      ethics.items.map((item) =>
+        el('button', openableAttrs(item, item), [
+          el('div', { class: 'icon' }, item.icon),
+          el('h3', {}, item.title),
+          el('span', { class: 'desc' }, item.shortDesc),
+          el('span', { class: 'card-link' }, '-> voir details'),
+        ])
+      )
+    );
+    return el('section', { id: 'ethique' }, [
+      el('p', { class: 'eyebrow' }, '04 /ethique'),
+      el('h2', {}, 'Notes de bas de page'),
+      el('p', { class: 'lead', style: 'margin-bottom:36px;' }, ethics.intro),
+      grid,
+    ]);
+  };
 
   window.Portfolio.renderContact = function renderContact(contact, formNode) {
     return el('section', { id: 'contact' }, [
