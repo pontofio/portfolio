@@ -95,6 +95,21 @@ window.PORTFOLIO_CONTENT = {
     }
   ],
   "projects": [
+	{
+      "icon": "ERP",
+      "ext": ".app",
+      "title": "Déploiement ERP international",
+      "shortDesc": "Saverglass - Filiale Ibérica",
+      "tag": "Saverglass - En cours",
+      "desc": "Contexte & Enjeux : La filiale portugaise de Saverglass utilisait un ERP local distinct, générant doubles saisies, erreurs et perte de productivité. Pour respecter la législation portugaise imposant un logiciel certifié pour la facturation, une solution hybride a été déployée : intégration de l'ERP groupe relié par flux de données à l'outil certifiant.\n\nRôle & Actions : Recueil et cadrage des besoins métiers, interface MOA/MOE, pilotage du projet et coordination des développeurs.\n\nOutils & Méthodes : Delphi (ERP interne), Talend (ETL / flux de données), logiciel interne de ticketing, réunions de synchronisation régulières.\n\nRésultats : Projet avancé à 75 %, mise en production planifiée au 3 novembre 2026, fiabilisation des données et conformité réglementaire.",
+      "stack": [
+        "Gestion de projet",
+        "Cadrage métier",
+        "Delphi",
+        "Talend"
+      ]
+    },
+	  
     {
       "icon": "▣",
       "ext": ".app",
