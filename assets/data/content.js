@@ -95,7 +95,8 @@ window.PORTFOLIO_CONTENT = {
     }
   ],
   "projects": [
-	{
+	"projects": [
+    {
       "icon": "ERP",
       "ext": ".app",
       "title": "Déploiement ERP international (Ibérica)",
@@ -111,60 +112,68 @@ window.PORTFOLIO_CONTENT = {
         "Préparation PFE"
       ]
     },
-	  
     {
-      "icon": "▣",
+      "icon": "SEC",
       "ext": ".app",
       "title": "Politique de mots de passe",
-      "shortDesc": "Saverglass — sécurité SI",
-      "tag": "Saverglass · Depuis janv. 2025",
-      "desc": "Projet transverse de grande ampleur visant à renforcer la sécurité de l'entreprise par le déploiement d'une nouvelle politique de mots de passe sur l'ensemble des systèmes d'information. Mise en production prévue le 4 novembre 2025. Mon rôle : analyse des impacts sur les différentes applications, coordination des tests, préparation du déploiement.",
+      "shortDesc": "Saverglass - Sécurité SI & 60+ applications",
+      "tag": "Saverglass - Déployé",
+      "desc": "<div class='modal-block'><h4 class='modal-subtitle'>Contexte & Enjeux</h4><p>Lors des audits de sécurité, la politique de mots de passe des ERP internes a été pointée comme non conforme (minimum 3 caractères sans exigence de complexité), créant un risque critique de non-conformité pour le groupe.</p></div><div class='modal-block'><h4 class='modal-subtitle'>Périmètre applicatif</h4><p>Le projet a impacté le système d'authentification transverse partagé par <strong>plus de 60 applications</strong> internes (clients lourds et portails web).</p></div><div class='modal-block'><h4 class='modal-subtitle'>Rôle & Actions menées</h4><ul class='modal-list'><li>Cartographie de l'existant et analyse d'impact sur les 60+ applications.</li><li>Benchmark des standards de sécurité et définition des règles de robustesse.</li><li>Soutenance et validation des choix techniques auprès des responsables groupe et de la maison-mère.</li><li>Pilotage du projet et développements ciblés en WebDev.</li><li>Organisation des campagnes de tests intensifs et communication interne / conduite du changement.</li></ul></div><div class='modal-block'><h4 class='modal-subtitle'>Résultats & Impact</h4><ul class='modal-list'><li>Mise en production réussie le <strong>4 novembre</strong>.</li><li>Conformité validée aux audits de sécurité du groupe.</li><li>Sécurisation globale des accès et adoption fluide par les utilisateurs.</li></ul></div>",
       "image": "assets/img/mdp.png",
-	  "stack": [
-        "Analyse d'impact",
-        "Tests",
-        "Coordination"
+      "stack": [
+        "Gestion de projet",
+        "Sécurité SI",
+        "Analyse d'impact (60+ apps)",
+        "Conduite du changement",
+        "WebDev"
       ]
     },
     {
-      "icon": "◱",
+      "icon": "DEV",
       "ext": ".app",
       "title": "Credit Application Form",
-      "shortDesc": "Saverglass — gestion prospects",
-      "tag": "Saverglass · Site interne",
-      "desc": "Site interne permettant aux administrateurs de gérer les contacts, les prospects et les références commerciales (trade reference). Mon rôle : évolutions et modifications pour adapter le site à de nouveaux besoins métiers, en intervenant sur le code et les fonctionnalités de gestion.",
+      "shortDesc": "Saverglass - Onboarding prospects & ERP",
+      "tag": "Saverglass - Application Web",
+      "desc": "<div class='modal-block'><h4 class='modal-subtitle'>Contexte & Enjeux</h4><p>Digitalisation du processus d'acquisition client : diffusion de formulaires aux clients afin de collecter leurs informations et les intégrer automatiquement en tant que prospects qualifiés dans l'ERP groupe via Eloqua.</p></div><div class='modal-block'><h4 class='modal-subtitle'>Rôle & Actions menées</h4><ul class='modal-list'><li>Analyse des besoins métiers et refonte des processus fonctionnels associés.</li><li>Développement et adaptation des fonctionnalités du formulaire en WebDev.</li><li>Étude de faisabilité et cadrage de l'intégration de <strong>DocuSign</strong> pour répondre aux obligations légales de signature électronique (notamment sur la zone USA).</li><li>Vérification de la cohérence des flux de données entre le portail web, Eloqua et l'ERP.</li></ul></div><div class='modal-block'><h4 class='modal-subtitle'>Environnement & Outils</h4><ul class='modal-list'><li><strong>Technologies :</strong> WebDev, Eloqua, DocuSign, ERP groupe.</li></ul></div><div class='modal-block'><h4 class='modal-subtitle'>Résultats & Livrables</h4><ul class='modal-list'><li>Automatisation de l'onboarding commercial et suppression des saisies manuelles.</li><li>Alignement avec les exigences réglementaires internationales de signature.</li></ul></div>",
       "stack": [
-        "Développement",
-        "Gestion métier"
+        "WebDev",
+        "Eloqua",
+        "DocuSign",
+        "Intégration ERP",
+        "Processus métier"
       ]
     },
     {
-      "icon": "◈",
+      "icon": "SYS",
       "ext": ".sys",
-      "title": "Maintenance & support",
-      "shortDesc": "Saverglass — outils internes",
-      "tag": "Saverglass · Depuis oct. 2024",
-      "desc": "Dès mon arrivée, prise en main des logiciels internes de suivi des demandes. Réponse aux demandes d'évolution et de correction de bugs, assurant la stabilité des outils et une compréhension approfondie des besoins utilisateurs.",
+      "title": "Maintenance & Support applicatif",
+      "shortDesc": "Saverglass - Outils internes & Ticketing",
+      "tag": "Saverglass - MCO applicatif",
+      "desc": "<div class='modal-block'><h4 class='modal-subtitle'>Contexte & Objectifs</h4><p>Maintien en conditions opérationnelles (MCO) et support réactif sur les applicatifs internes critiques développés en WinDev et WebDev.</p></div><div class='modal-block'><h4 class='modal-subtitle'>Rôle & Actions menées</h4><ul class='modal-list'><li>Maintenance corrective et évolutive sur l'outil interne de suivi des demandes (ticketing de l'équipe).</li><li>Résolution rapide d'anomalies et ajustements sur différents portails internes.</li><li>Prise en compte des retours utilisateurs pour fluidifier le traitement des demandes.</li></ul></div><div class='modal-block'><h4 class='modal-subtitle'>Environnement & Outils</h4><ul class='modal-list'><li><strong>Technologies :</strong> WinDev, WebDev, Logiciel interne de suivi des demandes.</li></ul></div><div class='modal-block'><h4 class='modal-subtitle'>Résultats & Bénéfices</h4><ul class='modal-list'><li>Amélioration de la réactivité et de la stabilité des outils internes.</li><li>Optimisation du quotidien de l'équipe de développement et gain de productivité.</li></ul></div>",
       "stack": [
-        "Support",
-        "Debug",
-        "Suivi"
+        "WinDev",
+        "WebDev",
+        "Support N2/N3",
+        "Ticketing",
+        "MCO"
       ]
     },
     {
-      "icon": "◇",
+      "icon": "DOC",
       "ext": ".doc",
-      "title": "Cahier des charges",
-      "shortDesc": "Formula Student — Itii Picardie",
-      "tag": "Itii Picardie · Projet de formation",
-      "desc": "Réalisation d'un cahier des charges pour le concours Formula Student. Travail collectif impliquant l'analyse des besoins techniques et réglementaires, la définition des spécifications et la structuration du document.",
+      "title": "Cahier des charges - Formula Student",
+      "shortDesc": "Formula Student - Itii Picardie",
+      "tag": "Itii Picardie - Projet académique",
+      "desc": "<div class='modal-block'><h4 class='modal-subtitle'>Contexte & Objectifs</h4><p>Élaboration d'un cahier des charges fonctionnel et technique complet dans le cadre du concours international d'ingénierie Formula Student.</p></div><div class='modal-block'><h4 class='modal-subtitle'>Rôle & Actions menées</h4><ul class='modal-list'><li>Analyse des contraintes techniques, budgétaires et réglementaires de la compétition.</li><li>Définition, hiérarchisation et formalisation des spécifications d'exigences.</li><li>Collaboration et coordination au sein de l'équipe projet d'élèves ingénieurs.</li></ul></div><div class='modal-block'><h4 class='modal-subtitle'>Résultats & Livrables</h4><ul class='modal-list'><li>Dossier de spécifications validé conforme au règlement de la compétition.</li><li>Validation des compétences en ingénierie des exigences et gestion de projet.</li></ul></div>",
       "image": "assets/img/Formula.png",
-	  "stack": [
+      "stack": [
         "Analyse fonctionnelle",
         "Gestion des exigences",
+        "Ingénierie système",
         "Travail d'équipe"
       ]
     }
+  ],
   ],
   "skillGroups": [
     {
