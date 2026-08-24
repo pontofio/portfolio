@@ -67,39 +67,47 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
     };
   }
 
-  window.Portfolio.renderHero = function renderHero(profile) {
-    const downloadIcon = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
+  function initCvFab() {
+    const existingFab = document.getElementById('cvFab');
+    if (existingFab) existingFab.remove();
 
-    const cvDropdown = el('div', { class: 'cv-dropdown' }, [
-      el('button', { class: 'btn-cv', type: 'button', html: `${downloadIcon} <span>Mon CV</span>` }),
-      el('div', { class: 'cv-menu' }, [
-        el('a', { href: 'assets/CV.pdf', target: '_blank', rel: 'noopener noreferrer' }, 'Ouvrir (Apercu)'),
-        el('a', { href: 'assets/CV.pdf', download: 'CV_Fiona_Pontoparia.pdf' }, 'Telecharger (.PDF)'),
-        el('a', { href: 'assets/img/CV.jpg', download: 'CV_Fiona_Pontoparia.jpg' }, 'Telecharger (.JPG)')
-      ])
+    const viewSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>';
+    const dlSvg = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>';
+    const cvMainSvg = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>';
+
+    const fabContainer = el('div', { id: 'cvFab', class: 'cv-fab-container' }, [
+      el('div', { class: 'cv-fab-options' }, [
+        el('a', { href: 'assets/CV.pdf', target: '_blank', rel: 'noopener noreferrer', class: 'cv-fab-bubble', html: `${viewSvg}<span>Ouvrir</span>` }),
+        el('a', { href: 'assets/CV.pdf', download: 'CV_Fiona_Pontoparia.pdf', class: 'cv-fab-bubble', html: `${dlSvg}<span>PDF</span>` }),
+        el('a', { href: 'assets/img/CV.jpg', download: 'CV_Fiona_Pontoparia.jpg', class: 'cv-fab-bubble', html: `${dlSvg}<span>JPG</span>` })
+      ]),
+      el('button', { class: 'cv-fab-trigger', type: 'button', 'aria-label': 'Options CV', html: `${cvMainSvg}<span class="cv-fab-tooltip">CV</span>` })
     ]);
 
-    const cvBtn = cvDropdown.querySelector('.btn-cv');
-    const cvMenu = cvDropdown.querySelector('.cv-menu');
-
-    cvBtn.addEventListener('click', (e) => {
+    const trigger = fabContainer.querySelector('.cv-fab-trigger');
+    trigger.addEventListener('click', (e) => {
       e.stopPropagation();
-      cvMenu.classList.toggle('is-open');
+      fabContainer.classList.toggle('is-open');
     });
 
     document.addEventListener('click', (e) => {
-      if (!cvDropdown.contains(e.target)) {
-        cvMenu.classList.remove('is-open');
+      if (!fabContainer.contains(e.target)) {
+        fabContainer.classList.remove('is-open');
       }
     });
+
+    document.body.appendChild(fabContainer);
+  }
+
+  window.Portfolio.renderHero = function renderHero(profile) {
+    initCvFab();
 
     const content = el('div', { class: 'hero-content' }, [
       el('p', { class: 'eyebrow' }, '~/portfolio'),
       el('h1', {}, profile.name),
       el('h3', { class: 'hero-subtitle' }, profile.subtitle),
       el('p', { class: 'lead' }, profile.bio),
-      profile.location ? el('p', { class: 'hero-location' }, profile.location) : null,
-      cvDropdown
+      profile.location ? el('p', { class: 'hero-location' }, profile.location) : null
     ]);
 
     const children = [content];
