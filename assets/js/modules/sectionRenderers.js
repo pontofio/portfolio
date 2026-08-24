@@ -68,59 +68,49 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
 	}
 
   window.Portfolio.renderHero = function renderHero(profile) {
-	  const content = el('div', { class: 'hero-content' }, [
-		el('p', { class: 'eyebrow' }, '~/portfolio'),
-		el('h1', {}, profile.name),
-		el('p', { class: 'lead' }, `${profile.subtitle}. ${profile.bio}`)
-	  ]);
+  const downloadIcon = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>';
 
-	  const children = [content];
+  const cvDropdown = el('div', { class: 'cv-dropdown' }, [
+    el('button', { class: 'btn-cv', type: 'button', html: `${downloadIcon} <span>Mon CV</span>` }),
+    el('div', { class: 'cv-menu' }, [
+      el('a', { href: 'assets/CV.pdf', target: '_blank', rel: 'noopener noreferrer' }, 'Ouvrir (Aperçu)'),
+      el('a', { href: 'assets/CV.pdf', download: 'CV_Fiona_Pontoparia.pdf' }, 'Télécharger (.PDF)'),
+      el('a', { href: 'assets/img/CV.jpg', download: 'CV_Fiona_Pontoparia.jpg' }, 'Télécharger (.JPG)')
+    ])
+  ]);
 
-	  if (profile.photo) {
-		children.push(
-		  el('img', {
-			src: profile.photo,
-			alt: profile.name,
-			class: 'hero-photo'
-		  })
-		);
-	  }
+  const cvBtn = cvDropdown.querySelector('.btn-cv');
+  const cvMenu = cvDropdown.querySelector('.cv-menu');
 
-	  return el('section', { id: 'accueil', class: 'hero-section' }, children);
-	};
-  window.Portfolio.renderTimeline = function renderTimeline(timeline) {
-    const list = el(
-      'ul',
-      { class: 'timeline' },
-      timeline.map((entry) =>
-        el(
-          'li',
-          {
-            class: 't-item',
-            'data-ext': entry.ext || '',
-            'data-title': entry.title,
-            'data-tag': entry.tag || entry.date,
-            'data-desc': entry.desc,
-            'data-image': entry.image || '',
-          },
-          [
-            el('div', { class: 't-row' }, [
-              el('span', { class: 't-date' }, entry.date),
-              el('div', {}, [
-                el('div', { class: 't-title' }, entry.title),
-                el('div', { class: 't-sub' }, entry.sub),
-              ]),
-            ]),
-          ]
-        )
-      )
+  cvBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    cvMenu.classList.toggle('is-open');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!cvDropdown.contains(e.target)) {
+      cvMenu.classList.remove('is-open');
+    }
+  });
+
+  const content = el('div', { class: 'hero-content' }, [
+    el('p', { class: 'eyebrow' }, '~/portfolio'),
+    el('h1', {}, profile.name),
+    el('h3', { class: 'hero-subtitle' }, profile.subtitle),
+    el('p', { class: 'lead' }, profile.bio),
+    profile.location ? el('p', { class: 'hero-location' }, `📍 ${profile.location}`) : null,
+    cvDropdown
+  ]);
+
+  const children = [content];
+  if (profile.photo) {
+    children.push(
+      el('img', { src: profile.photo, alt: profile.name, class: 'hero-photo' })
     );
-    return el('section', { id: 'parcours' }, [
-      el('p', { class: 'eyebrow' }, '01 /parcours'),
-      el('h2', {}, 'Journal des événements'),
-      list,
-    ]);
-  };
+  }
+
+  return el('section', { id: 'accueil', class: 'hero-section' }, children);
+};
 
   window.Portfolio.renderSkills = function renderSkills(skillGroups) {
     const groups = el(
