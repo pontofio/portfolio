@@ -98,15 +98,17 @@ window.PORTFOLIO_CONTENT = {
 	{
       "icon": "ERP",
       "ext": ".app",
-      "title": "Déploiement ERP international",
-      "shortDesc": "Saverglass - Filiale Ibérica",
-      "tag": "Saverglass - En cours",
-      "desc": "Contexte & Enjeux : La filiale portugaise de Saverglass utilisait un ERP local distinct, générant doubles saisies, erreurs et perte de productivité. Pour respecter la législation portugaise imposant un logiciel certifié pour la facturation, une solution hybride a été déployée : intégration de l'ERP groupe relié par flux de données à l'outil certifiant.\n\nRôle & Actions : Recueil et cadrage des besoins métiers, interface MOA/MOE, pilotage du projet et coordination des développeurs.\n\nOutils & Méthodes : Delphi (ERP interne), Talend (ETL / flux de données), logiciel interne de ticketing, réunions de synchronisation régulières.\n\nRésultats : Projet avancé à 75 %, mise en production planifiée au 3 novembre 2026, fiabilisation des données et conformité réglementaire.",
+      "title": "Déploiement ERP international (Ibérica)",
+      "shortDesc": "Saverglass - Filiale Portugal & Espagne",
+      "tag": "Saverglass - Déploiement en cours",
+      "desc": "<strong>Contexte & Problématique :</strong><br>La filiale portugaise de Saverglass, qui gère l'ensemble des clients de la péninsule ibérique (Portugal et Espagne), utilisait historiquement un ERP local distinct du système d'information du groupe. Cette situation générait une double saisie systématique des commandes, des risques récurrents d'erreurs et une perte d'efficacité pour les équipes opérationnelles.<br><br><strong>Contrainte réglementaire & Architecture hybride :</strong><br>La législation fiscale portugaise impose obligatoirement l'utilisation d'un logiciel certifié par l'État pour l'émission des factures. Pour unifier le SI tout en respectant cette obligation, une architecture hybride a été mise en place : centralisation de toute l'activité dans l'ERP interne groupe, puis interfaçage via des flux de données automatisés vers le progiciel certifiant.<br><br><strong>Rôle & Responsabilités (MOA / MOE) :</strong><br>• Recueil et formalisation des besoins auprès des équipes métiers locales.<br>• Interface continue entre les utilisateurs métiers et l'équipe technique.<br>• Coordination et suivi des développements (points quotidiens et hebdomadaires).<br>• Conduite du projet et capitalisation méthodologique en vue de la préparation du Projet de Fin d'Études (PFE).<br><br><strong>Outils, Méthodes & Environnement technique :</strong><br>• Technologies : Delphi (ERP interne groupe), Talend (ETL / flux de données).<br>• Pilotage : Outil interne de suivi des demandes et ticketing (maintenu par le pôle), suite Google Workspace.<br>• Organisation : Synchronisations régulières et pilotage des jalons de livraison.<br><br><strong>Résultats, KPI & Livrables :</strong><br>• Avancement global : <strong>75 %</strong> finalisé.<br>• Mise en production (MEP) : Planifiée pour le <strong>3 novembre</strong>.<br>• Bénéfices attendus : Suppression définitive des doubles saisies, fiabilisation des flux de facturation et conformité légale totale.",
       "stack": [
         "Gestion de projet",
-        "Cadrage métier",
+        "Cadrage MOA / MOE",
         "Delphi",
-        "Talend"
+        "Talend (ETL)",
+        "Conformité fiscale",
+        "Préparation PFE"
       ]
     },
 	  
