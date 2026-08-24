@@ -39,8 +39,8 @@ window.Portfolio.WindowController = class WindowController {
     this.pathEl.textContent = title || '';
     this.titleEl.textContent = title || '';
     this.tagEl.textContent = tag || '';
-    this.descEl.textContent = desc || '';
-
+	this.descEl.innerHTML = desc || '';
+	  
     if (this.imgEl) {
       if (image) {
         this.imgEl.src = image;
