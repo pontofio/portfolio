@@ -99,69 +99,90 @@ section > * {
 .hero-location {
   font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
   color: var(--ink-soft);
-  margin: 0.85rem 0 1.25rem;
+  margin: 0.85rem 0 0;
 }
 
-/* Bouton Mon CV & Menu déroulant */
-.cv-dropdown {
-  position: relative;
-  display: inline-block;
-  margin-top: 0.5rem;
+/* Bulles flottantes CV (bas droite) */
+.cv-fab-container {
+  position: fixed;
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  right: clamp(1rem, 3vw, 1.75rem);
+  z-index: 150;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.6rem;
 }
 
-.btn-cv {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: inherit;
-  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+.cv-fab-trigger {
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 50%;
   background: var(--sage);
   color: #ffffff;
-  border: none;
-  padding: 0.65rem 1.25rem;
-  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-soft);
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.25s var(--ease-out), background-color 0.2s ease;
 }
 
-.btn-cv:hover {
+.cv-fab-trigger:hover {
   background: var(--sage-dark);
-  transform: translateY(-1px);
+  transform: scale(1.08);
 }
 
-.cv-menu {
-  display: none;
+.cv-fab-tooltip {
   position: absolute;
-  top: calc(100% + 0.4rem);
-  left: 0;
+  top: -0.35rem;
+  right: -0.35rem;
+  background: var(--surface);
+  color: var(--sage-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  padding: 0.1rem 0.35rem;
+  border-radius: 1rem;
+}
+
+.cv-fab-options {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: flex-end;
+  gap: 0.45rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px) scale(0.9);
+  transition: opacity 0.2s ease, transform 0.25s var(--ease-out);
+}
+
+.cv-fab-container.is-open .cv-fab-options {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.cv-fab-bubble {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-  min-width: 13rem;
-  z-index: 150;
-  overflow: hidden;
-}
-
-.cv-menu.is-open {
-  display: flex;
-  flex-direction: column;
-}
-
-.cv-menu a {
-  padding: 0.65rem 1rem;
-  color: var(--ink);
+  border-radius: 2rem;
   text-decoration: none;
-  font-size: 0.85rem;
-  transition: background 0.2s ease, color 0.2s ease;
-  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  box-shadow: var(--shadow-soft);
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.15s ease;
 }
 
-.cv-menu a:last-child {
-  border-bottom: none;
-}
-
-.cv-menu a:hover {
+.cv-fab-bubble:hover {
   background: var(--bg-soft);
   color: var(--sage-dark);
+  transform: translateX(-4px);
 }
