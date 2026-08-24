@@ -173,51 +173,56 @@ window.PORTFOLIO_CONTENT = {
     }
   ],
   "skillGroups": [
+    "skillGroups": [
     {
-      "title": "Langages",
+      "title": "Pilotage & Gestion de projet",
       "items": [
-        "C",
+        "Cadrage & Recueil des besoins métiers",
+        "Rédaction de cahiers des charges & Spécifications",
+        "Interface MOA / MOE (lien métier et technique)",
+        "Coordination d'équipes de développement",
+        "Planification, suivi des jalons & gestion des risques",
+        "Recette, plans de tests & suivi des anomalies",
+        "Conduite du changement & formation utilisateurs"
+      ]
+    },
+    {
+      "title": "Environnement SI & Outils",
+      "items": [
+        "Compréhension d'architectures ERP & flux de données (ETL)",
+        "Outils de ticketing & gestion des demandes",
+        "Initiation WinDev & WebDev",
+        "Suite Google Workspace & Pack Office",
+        "Git & gestion de versions"
+      ]
+    },
+    {
+      "title": "Socle technique (Acquis académiques)",
+      "items": [
         "Python (confirmé par MOOC)",
-        "Java",
-        "Arduino (C++)"
+        "C & Java",
+        "Arduino (C++)",
+        "HTML / CSS / JavaScript (bases web)",
+        "Linux & Bash Shell (confirmé par MOOC)"
       ]
     },
     {
-      "title": "Développement web",
+      "title": "Sécurité & Responsabilité",
       "items": [
-        "HTML / CSS",
-        "SASS (confirmé par MOOC)",
-        "JavaScript (confirmé par MOOC)",
-        "Animations CSS (confirmé par MOOC)"
+        "Sécurité SI & Politiques d'authentification",
+        "Réseaux TCP/IP (bases)",
+        "RGPD & Protection des données",
+        "Accessibilité numérique & Pédagogie",
+        "Écoconception logicielle"
       ]
     },
     {
-      "title": "Systèmes & outils",
+      "title": "Atouts & Posture professionnelle",
       "items": [
-        "Linux",
-        "Bash Shell (confirmé par MOOC)",
-        "Git",
-        "Réseau TCP/IP (MOOC)",
-        "Cybersécurité (MOOC)",
-        "Pack Office"
-      ]
-    },
-    {
-      "title": "Humaines & managériales",
-      "items": [
-        "Rigueur & organisation",
-        "Autonomie & travail d'équipe",
-        "Pédagogie & communication",
-        "Polyvalence & adaptabilité"
-      ]
-    },
-    {
-      "title": "Éthique & Responsabilité",
-      "items": [
-        "RGPD & Protection des données (sécurisation des accès et conformité)",
-        "Inclusion & Accessibilité numérique (vulgarisation et ergonomie)",
-        "Écoconception logicielle (sobriété du code et optimisation des flux)",
-        "Posture réflexive & Déontologie (analyse des impacts sociétaux et éthique de l'ingénieur)"
+        "Pédagogie & vulgarisation technique",
+        "Rigueur & sens de l'organisation",
+        "Écoute active & communication transverse",
+        "Autonomie & adaptabilité"
       ]
     }
   ],
