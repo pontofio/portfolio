@@ -173,7 +173,6 @@ window.PORTFOLIO_CONTENT = {
     }
   ],
   "skillGroups": [
-    "skillGroups": [
     {
       "title": "Pilotage & Gestion de projet",
       "items": [
