@@ -88,3 +88,80 @@ section > * {
   left: 0;
   color: var(--sage);
 }
+
+.hero-subtitle {
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.35rem);
+  color: var(--sage-dark);
+  margin: 0 0 0.85rem;
+  font-weight: 500;
+}
+
+.hero-location {
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  color: var(--ink-soft);
+  margin: 0.85rem 0 1.25rem;
+}
+
+/* Bouton Mon CV & Menu déroulant */
+.cv-dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: inherit;
+  font-size: clamp(0.85rem, 0.8rem + 0.2vw, 0.95rem);
+  background: var(--sage);
+  color: #ffffff;
+  border: none;
+  padding: 0.65rem 1.25rem;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.btn-cv:hover {
+  background: var(--sage-dark);
+  transform: translateY(-1px);
+}
+
+.cv-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  left: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  min-width: 13rem;
+  z-index: 150;
+  overflow: hidden;
+}
+
+.cv-menu.is-open {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-menu a {
+  padding: 0.65rem 1rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: background 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid var(--line);
+}
+
+.cv-menu a:last-child {
+  border-bottom: none;
+}
+
+.cv-menu a:hover {
+  background: var(--bg-soft);
+  color: var(--sage-dark);
+}
