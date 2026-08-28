@@ -270,3 +270,22 @@ section > * {
   color: var(--sage-dark) !important;
   transform: translateX(-4px) !important;
 }
+
+/* Carte activité GitHub dans la section Contact */
+.github-card {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
+  max-width: 32rem;
+}
+
+.github-chart {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-top: 0.5rem;
+  border-radius: var(--radius-sm);
+}
