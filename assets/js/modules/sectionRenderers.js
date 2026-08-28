@@ -217,12 +217,33 @@ window.Portfolio.renderNav = function renderNav(navItems, container) {
     ]);
   };
 
-  window.Portfolio.renderContact = function renderContact(contact, formNode) {
+window.Portfolio.renderContact = function renderContact(contact, formNode) {
+    const { el } = window.Portfolio;
+
+    let githubCard = null;
+    if (contact.githubUsername) {
+      githubCard = el('div', { class: 'github-card' }, [
+        el('p', { class: 'modal-subtitle' }, 'Activité GitHub'),
+        el('a', {
+          href: `https://github.com/${contact.githubUsername}`,
+          target: '_blank',
+          rel: 'noopener noreferrer'
+        }, [
+          el('img', {
+            src: `https://ghchart.rshah.org/6f8f6a/${contact.githubUsername}`,
+            alt: `Graphique d'activité GitHub de ${contact.githubUsername}`,
+            class: 'github-chart'
+          })
+        ])
+      ]);
+    }
+
     return el('section', { id: 'contact' }, [
       el('p', { class: 'eyebrow' }, '05 /contact'),
       el('h2', {}, 'Ouvrir une discussion'),
       el('p', { class: 'lead', style: 'margin-bottom:32px;' }, contact.intro),
       formNode,
+      githubCard,
       el('p', { class: 'lead', style: 'margin-top:24px; font-size:12px;' }, contact.email),
     ]);
   };
