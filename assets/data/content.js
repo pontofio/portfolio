@@ -258,6 +258,7 @@ window.PORTFOLIO_CONTENT = {
   },
   "contact": {
     "intro": "Un projet, une question, une opportunité d'alternance ? Écrivez-moi.",
-    "email": "pontofiona@gmail.com"
+    "email": "pontofiona@gmail.com",
+    "githubUsername": "@pontofio" // Remplacez par votre vrai nom d'utilisateur GitHub
   }
 };
