@@ -1,46 +1,82 @@
 # Portfolio — Fiona Pontoparia
 
-Portfolio web statique, interactif et responsive, conçu en Vanilla JavaScript, HTML5 et CSS3 sans framework ni dépendance externe.
+Portfolio web d'ingénieure interactif, fluide et accessible, développé en **Vanilla JavaScript**, **HTML5** et **CSS3** sans framework ni dépendance externe.
 
-## Fonctionnalités
+---
 
-* **Architecture modulaire Vanilla JS** : Découpage en modules autonomes (`window.Portfolio`) sans étape de compilation ni bundler, permettant une exécution directe en local (`file://`) ou sur hébergeur statique.
-* **Contenu dynamique piloté par données** : Données du profil, projets, parcours et compétences centralisées dans `assets/data/content.js` pour une maintenance simplifiée.
-* **Design fluide et responsive** : Mise en page adaptative (mobile, tablette, desktop) basée sur les variables CSS, le dimensionnement relatif (`rem`, `ch`) et la typographie fluide (`clamp()`).
-* **Fenêtre modale dynamique** : Système de pop-up simulant l'ouverture de fichiers pour détailler les projets, expériences et engagements.
-* **Navigation & ScrollSpy** : Menu dock flottant synchronisé en temps réel avec le défilement des sections.
-* **Curseur personnalisé** : Anneau fluide suivant le pointeur sur les interfaces bureau compatibles.
-* **Gestion du formulaire de contact** : Architecture découplée acceptant plusieurs connecteurs d'envoi (`ConsoleEmailSender`, `FormspreeSender`, `EmailJSSender`).
+## ✨ Fonctionnalités & Expérience Utilisateur
 
-## Structure du projet
+* **Architecture modulaire Vanilla JS** : Découpage en composants autonomes (`window.Portfolio`), sans étape de build ni bundler, garantissant une exécution immédiate en local par simple double-clic (`file://`) ou sur n'importe quel hébergeur statique.
+* **Typographie & Design System haute fidélité** :
+  * Association typographique moderne : **Plus Jakarta Sans** (élégance, lisibilité et modernité) + **JetBrains Mono** (précision technique, tags et chemins).
+  * Thème clair et thème sombre (Dark Mode) avec persistance dans le `localStorage` et détection automatique des préférences du système.
+  * Barre de navigation flottante en verre dépoli (*frosted glass*), indicateur actif et commutateur de thème intégré sans conflit mobile.
+* **Hero Section interactive** :
+  * Badge de statut animé avec pulsation : *À l'écoute d'opportunités · Alternance Ingénieure*.
+  * Portrait mis en valeur avec bordure lumineuse et badge académique.
+  * Cartes d'indicateurs clés (années d'expérience, applications sécurisées, double profil MOA/MOE).
+  * Boutons d'action rapide (CTA) : exploration des projets, téléchargement direct du CV et prise de contact.
+* **Galerie de Projets avec Filtres dynamiques** :
+  * Filtrage instantané par catégorie (*Tous*, *Gestion de projet & SI*, *Sécurité SI*, *Développement Web*, *Académique*).
+  * Cartes de projets visuelles avec bannières de prévisualisation, statuts de déploiement, extensions de fichiers et badges de technologies visibles directement.
+* **Fenêtre Modale Interactive (macOS / Terminal Style)** :
+  * Contrôles de fenêtre (pastilles rouge, jaune, verte), fil d'Ariane dynamique et gestion du focus.
+  * **Navigation séquentielle** : boutons Précédent/Suivant et touches du clavier (← / →) pour parcourir tous les projets sans quitter la modale.
+  * Blocage du scroll d'arrière-plan (`modal-open`) et fermeture rapide via Échap ou clic externe.
+* **Matrice de Compétences avec Recherche en direct** :
+  * Répartition en 5 piliers professionnels (Pilotage MOA/MOE, SI & ERP, Socle Technique, Sécurité SI, Posture).
+  * Barre de recherche instantanée mettant en surbrillance les compétences correspondantes au fil de la frappe.
+* **Parcours Chronologique & Éthique / RSE** :
+  * Chronologie interactive avec puces lumineuses au survol (formation, expérience, engagement).
+  * Mise en valeur de l'engagement sociétal (Service Civique chez Unis Cité / Ambassadrice du Code, bénévolat aux Restos du Cœur).
+* **Hub de Contact & Formulaire** :
+  * Bouton de copie en 1 clic de l'adresse e-mail avec alerte toast.
+  * Formulaire interactif avec validation en direct (nom, email, sujet, message).
+  * Découplage de l'envoi : prêt pour Formspree, EmailJS ou fallback automatique vers le client de messagerie par défaut.
+* **Curseur fluide personnalisé** :
+  * Pointeur et anneau amorti sur grand écran, avec désactivation automatique sur smartphones, tablettes tactiles ou en mode de réduction de mouvement.
+
+---
+
+## 📂 Structure du projet
 
 ```text
 portfolio/
-├── index.html                  # Structure principale du document
+├── index.html                  # Structure HTML sémantique & métadonnées SEO/OpenGraph
+├── README.md                   # Documentation du projet
 ├── assets/
+│   ├── CV.pdf                  # Curriculum Vitae officiel au format PDF
 │   ├── css/
-│   │   ├── base.css            # Styles globaux, grille d'arrière-plan et typographie
-│   │   ├── cards.css           # Grilles et cartes de projets
-│   │   ├── cursor.css          # Animation et style du curseur personnalisé
-│   │   ├── form.css            # Style du formulaire de contact
-│   │   ├── nav.css             # Barre de navigation (dock)
-│   │   ├── sections.css        # Conteneurs de section et blocs de compétences
-│   │   ├── timeline.css        # Chronologie du parcours
-│   │   ├── variables.css       # Palette de couleurs, rayons et ombres CSS
-│   │   └── window.css          # Fenêtre modale / pop-up
+│   │   ├── base.css            # Styles globaux, grille de fond et typographie
+│   │   ├── cards.css           # Grille de projets, filtres et cartes riches
+│   │   ├── cursor.css          # Animation du curseur personnalisé
+│   │   ├── form.css            # Hub de contact, validation et disposition 2 colonnes
+│   │   ├── nav.css             # Dock flottant et commutateur de thème
+│   │   ├── sections.css        # Sections Hero, Compétences avec recherche, Éthique & FAB
+│   │   ├── timeline.css        # Chronologie visuelle du parcours
+│   │   ├── variables.css       # Tokens de couleurs (Light/Dark), ombres et rayons
+│   │   └── window.css          # Modale interactive, barre de titre et navigation
 │   ├── data/
-│   │   └── content.js          # Données textuelles du portfolio
+│   │   └── content.js          # Données centralisées (profil, projets, compétences, contact)
+│   ├── img/                    # Illustrations et photos
+│   │   ├── selfi.jpg
+│   │   ├── erp.jpg
+│   │   ├── mdp.png
+│   │   ├── CreditApp.png
+│   │   ├── Formula.png
+│   │   ├── FA27INFO.jpg
+│   │   └── UC.jpg
 │   └── js/
-│       ├── main.js             # Point d'entrée et initialisation des modules
+│       ├── main.js             # Point d'entrée et orchestration des modules
 │       └── modules/
 │           ├── contactForm.js      # Gestion et validation du formulaire
-│           ├── contentLoader.js    # Chargement des données
-│           ├── customCursor.js     # Logique du pointeur interactif
-│           ├── dom.js              # Helpers de création d'éléments DOM
-│           ├── navRenderer.js      # Génération des liens de navigation
-│           ├── scrollSpy.js        # Détection de la section active à l'écran
-│           ├── sectionRenderers.js # Rendu HTML des différentes sections
-│           ├── windowController.js # Contrôle d'affichage de la modale
+│           ├── contentLoader.js    # Chargement asynchrone des données
+│           ├── customCursor.js     # Logique d'animation du curseur
+│           ├── dom.js              # Helpers de création d'éléments DOM sécurisés
+│           ├── navRenderer.js      # Génération du menu dock et gestion du thème
+│           ├── scrollSpy.js        # Détection précise de la section active à l'écran
+│           ├── sectionRenderers.js # Rendu des sections, filtres, recherche et toasts
+│           ├── windowController.js # Contrôleur de modale avec navigation séquentielle
 │           └── emailSenders/       # Adaptateurs d'envoi d'e-mail
 │               ├── ConsoleEmailSender.js
 │               ├── EmailJSSender.js
@@ -48,36 +84,51 @@ portfolio/
 │               └── FormspreeSender.js
 ```
 
-## Lancement
+---
 
-### En local
-Ouvrez directement le fichier `index.html` dans n'importe quel navigateur (double-clic supporté sans serveur web requis).
+## 🚀 Utilisation & Lancement
 
-Pour utiliser un serveur local léger :
+### Lancement local immédiat
+Ouvrez simplement le fichier `index.html` dans votre navigateur web (double-clic direct sans serveur requis).
 
+### Avec un serveur HTTP local (optionnel)
 ```bash
+# Avec Python (si disponible) :
 python -m http.server 8000
+
+# Avec Node / npx (si disponible) :
+npx serve .
 ```
 
-### Déploiement
-Le projet est prêt pour un hébergement statique (GitHub Pages, Vercel, Netlify). Il suffit de pousser les fichiers à la racine de la branche de publication.
+### Déploiement en ligne
+Le site est 100% statique et prêt pour un déploiement instantané :
+* **GitHub Pages** : Poussez le dépôt sur GitHub et activez GitHub Pages dans les paramètres du dépôt.
+* **Vercel / Netlify** : Importez le dépôt et déployez sans configuration de build nécessaire.
 
-## Configuration
+---
 
-### Mise à jour des informations
-Modifiez les entrées de l'objet global dans `assets/data/content.js` pour ajouter ou adapter vos expériences, projets, compétences et coordonnées.
+## ⚙️ Configuration & Personnalisation
 
-### Activation de l'envoi de mail
-Dans `assets/js/main.js`, remplacez le connecteur de test `ConsoleEmailSender` par le service de votre choix :
+### 1. Modifier vos informations
+Ouvrez `assets/data/content.js` pour adapter vos descriptions, vos projets, vos badges ou vos coordonnées.
 
+### 2. Connecter le formulaire de contact en production
+Par défaut, `ConsoleEmailSender` est configuré avec ouverture pré-remplie de la messagerie par défaut. Pour activer un envoi d'API direct en arrière-plan, modifiez la ligne correspondante dans `assets/js/main.js` :
+
+**Option A — Formspree (recommandé, 2 minutes de configuration) :**
+1. Créez un compte gratuit sur [formspree.io](https://formspree.io) et créez un nouveau formulaire ciblant `pontofiona@gmail.com`.
+2. Dans `assets/js/main.js` :
 ```javascript
-// Exemple pour Formspree
-const emailSender = new P.emailSenders.FormspreeSender('[https://formspree.io/f/VOTRE_ID](https://formspree.io/f/VOTRE_ID)');
+const emailSender = new P.emailSenders.FormspreeSender('https://formspree.io/f/VOTRE_ID_FORMSPREE');
+```
 
-// Exemple pour EmailJS
+**Option B — EmailJS :**
+1. Créez un compte sur [emailjs.com](https://www.emailjs.com).
+2. Dans `assets/js/main.js` :
+```javascript
 const emailSender = new P.emailSenders.EmailJSSender({
   serviceId: 'VOTRE_SERVICE_ID',
   templateId: 'VOTRE_TEMPLATE_ID',
-  publicKey: 'VOTRE_PUBLIC_KEY'
+  publicKey: 'VOTRE_CLE_PUBLIQUE'
 });
 ```
