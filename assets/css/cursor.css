@@ -1,0 +1,8 @@
+/* Native clean cursor styles (no artificial spotlights or glowing orbs) */
+html, body {
+  cursor: auto;
+}
+
+a, button, [role="button"], input[type="submit"], input[type="button"], .file-card, .timeline-item, .ethics-card {
+  cursor: pointer;
+}

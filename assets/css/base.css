@@ -1,0 +1,214 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-main);
+  font-size: clamp(0.95rem, 0.92rem + 0.2vw, 1.05rem);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color var(--transition-base), color var(--transition-base);
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* Ambient dynamic background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center center;
+  opacity: 0.6;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 30%, #000 40%, transparent 100%);
+}
+
+/* Subtle ambient colored glow orbs */
+body::after {
+  content: "";
+  position: fixed;
+  top: -15vw;
+  right: -10vw;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+  filter: blur(60px);
+}
+
+/* Accessible skip-link */
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  transform: translateY(-200%);
+  background: var(--primary);
+  color: #ffffff;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-sm);
+  z-index: 9999;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+  width: min(68rem, 92vw);
+  margin: 0 auto;
+  padding: clamp(5.5rem, 11vw, 7.5rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+/* Scroll margin so sticky dock doesn't hide section headers */
+section {
+  scroll-margin-top: 5rem;
+}
+
+/* Typography elements */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 0.68rem + 0.15vw, 0.82rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--primary);
+  font-weight: 600;
+  margin: 0 0 0.85rem;
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 1.6rem + 2.8vw, 4rem);
+  line-height: 1.1;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.4rem);
+  margin: 0 0 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+p.lead {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.15rem);
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+
+/* Selection & focus styling */
+::selection {
+  background: var(--primary-light);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Toast Notification for quick actions */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translate(-50%, 150%);
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--primary);
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-lg);
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  z-index: 10000;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s var(--ease-spring), opacity 0.25s ease;
+}
+
+.toast.show {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hint / Footer */
+footer.hint {
+  position: fixed;
+  bottom: clamp(0.5rem, 1.8vh, 1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: clamp(0.7rem, 0.65rem + 0.15vw, 0.78rem);
+  color: var(--ink-muted);
+  letter-spacing: 0.02em;
+  z-index: 50;
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  footer.hint {
+    display: none;
+  }
+}

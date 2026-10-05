@@ -1,0 +1,889 @@
+/* Main Section Containers */
+section {
+  width: 100%;
+  margin: clamp(2rem, 5vw, 3.5rem) auto;
+  padding: clamp(1.75rem, 4.5vw, 3.25rem);
+  background-color: var(--surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+
+section:hover {
+  border-color: var(--line-strong);
+}
+
+section > * {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Modern Hero Section
+   ========================================================================== */
+.hero-section.modern-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: center;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(2rem, 4.5vw, 3.5rem);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.hero-text-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 1;
+}
+
+/* Status Badge */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: clamp(0.75rem, 0.72rem + 0.1vw, 0.82rem);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+
+.status-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  flex-shrink: 0;
+}
+
+/* Hero Title & Greeting */
+.hero-title {
+  margin: 0 0 0.6rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+.hero-greeting {
+  display: block;
+  font-size: clamp(1rem, 0.95rem + 0.3vw, 1.25rem);
+  font-weight: 500;
+  color: var(--ink-soft);
+  letter-spacing: 0.01em;
+  margin-bottom: 0.35rem;
+}
+
+.hero-name {
+  display: block;
+  font-size: clamp(2.4rem, 1.8rem + 2.5vw, 3.8rem);
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+/* Subtitle & Role */
+.hero-role-badge {
+  font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.3rem);
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-bio {
+  font-size: clamp(0.95rem, 0.92rem + 0.15vw, 1.05rem);
+  line-height: 1.7;
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+  max-width: 54ch;
+}
+
+.hero-bio strong {
+  color: var(--ink);
+}
+
+/* Quick Highlight Chips */
+.hero-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.hero-chip {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  background: var(--bg-subtle);
+  color: var(--ink-soft);
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+/* Hero CTA Buttons */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transition: all var(--transition-fast);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--primary-glow);
+}
+
+.btn-arrow {
+  transition: transform var(--transition-fast);
+}
+
+.btn-primary:hover .btn-arrow {
+  transform: translateY(2px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 0.75rem 1.3rem;
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary);
+  background: var(--bg-subtle);
+  transform: translateY(-2px);
+  color: var(--primary);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.75rem 1rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  color: var(--primary);
+  transform: translateX(3px);
+}
+
+/* ==========================================================================
+   Modern Profile Card (Right Column)
+   ========================================================================== */
+.hero-card-col {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 310px;
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.35s var(--ease-spring), box-shadow 0.35s ease, border-color 0.3s ease;
+  position: relative;
+}
+
+.profile-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: var(--shadow-hover);
+}
+
+.profile-card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.profile-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.profile-card:hover .profile-card-photo {
+  transform: scale(1.05);
+}
+
+.profile-card-overlay-badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  background: var(--surface-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.profile-card-body {
+  padding: 1.25rem;
+  text-align: center;
+  background: var(--surface);
+}
+
+.profile-card-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+}
+
+.profile-card-role {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.profile-card-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.35rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--line);
+}
+
+.mini-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mini-stat-val {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+
+.mini-stat-lbl {
+  font-size: 0.65rem;
+  color: var(--ink-muted);
+  margin-top: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive Breakpoint for Hero */
+@media (max-width: 860px) {
+  .hero-section.modern-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    gap: 2.5rem;
+  }
+
+  .hero-text-col {
+    align-items: center;
+  }
+
+  .hero-chips-row {
+    justify-content: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-card-col {
+    order: -1;
+  }
+
+  .profile-card {
+    max-width: 260px;
+  }
+
+  .profile-card-image-wrap {
+    height: 250px;
+  }
+}
+
+/* ==========================================================================
+   Skills Section (Compétences)
+   ========================================================================== */
+.skills-search-bar {
+  margin-bottom: 1.75rem;
+  position: relative;
+  max-width: 24rem;
+}
+
+.skills-search-bar input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.5rem;
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.88rem;
+  transition: all var(--transition-fast);
+}
+
+.skills-search-bar input:focus {
+  outline: none;
+  background: var(--surface);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.skills-search-icon {
+  position: absolute;
+  left: 0.9rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--ink-muted);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+}
+
+.skill-group {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 2.5vw, 1.6rem);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.skill-group:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.skill-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.skill-group-icon {
+  font-size: 1.35rem;
+}
+
+.skill-group h4 {
+  font-size: clamp(0.9rem, 0.85rem + 0.15vw, 1rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.skill-group ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.skill-group li {
+  font-size: clamp(0.85rem, 0.82rem + 0.1vw, 0.92rem);
+  color: var(--ink-soft);
+  padding: 0.35rem 0.65rem 0.35rem 1.4rem;
+  position: relative;
+  line-height: 1.45;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.skill-group li::before {
+  content: "▹";
+  position: absolute;
+  left: 0.4rem;
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.skill-group li:hover {
+  background: var(--bg-subtle);
+  color: var(--ink);
+}
+
+.skill-group li.skill-match {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Ethics Section (Éthique & RSE)
+   ========================================================================== */
+.ethics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: clamp(1.25rem, 2.5vw, 1.75rem);
+  margin-top: 1.5rem;
+}
+
+.ethics-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: var(--ink);
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+}
+
+.ethics-card:hover {
+  border-color: #ef4444;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(239, 68, 68, 0.15);
+}
+
+.ethics-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.ethics-icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: var(--radius-md);
+  background: rgba(239, 68, 68, 0.12);
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.ethics-card h3 {
+  font-size: 1.15rem;
+  margin: 0 0 0.35rem;
+}
+
+.ethics-card p.desc {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0 0 1rem;
+  flex-grow: 1;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Presentation & Values Block (EiCnam Criterion 1)
+   ========================================================================== */
+.hero-presentation-block {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.presentation-pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--primary);
+  margin-bottom: 0.4rem;
+}
+
+.presentation-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.4rem, 2.5vw, 1.85rem);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.presentation-card:hover {
+  border-color: var(--line-strong);
+}
+
+.presentation-card-header {
+  margin-bottom: 0.85rem;
+}
+
+.presentation-card-header h3 {
+  font-size: clamp(1.1rem, 1.05rem + 0.3vw, 1.3rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.presentation-text {
+  font-size: clamp(0.92rem, 0.88rem + 0.15vw, 0.98rem);
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* 3 Values Grid */
+.presentation-values-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.presentation-values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+}
+
+.value-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.value-card:hover {
+  border-color: var(--line-strong);
+}
+
+.value-num {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  width: fit-content;
+}
+
+.value-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.value-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Posture d'ingénieure Card */
+.presentation-card.posture-card {
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.35rem, 2.5vw, 1.75rem);
+}
+
+.posture-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.posture-quote {
+  font-size: clamp(0.96rem, 0.92rem + 0.2vw, 1.05rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0;
+  quotes: "«" "»";
+}
+
+.posture-author {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-top: 0.35rem;
+}
+
+/* ==========================================================================
+   Skills 3-Year Evolution (EiCnam Criterion 3)
+   ========================================================================== */
+.skills-evolution-box {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.evolution-header h3 {
+  font-size: clamp(1.15rem, 1.1rem + 0.3vw, 1.35rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.tutor-quote-box {
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.2rem, 2vw, 1.5rem) clamp(1.25rem, 2.5vw, 1.8rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.tutor-quote-text {
+  font-size: clamp(0.94rem, 0.9rem + 0.2vw, 1.02rem);
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0;
+}
+
+.tutor-author-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+}
+
+.tutor-author-text {
+  color: var(--primary);
+}
+
+.evolution-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1.25rem;
+}
+
+.evolution-step-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast);
+}
+
+.evolution-step-card:hover {
+  border-color: var(--line-strong);
+}
+
+.step-badge-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.3rem;
+}
+
+.step-index {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--primary);
+  background: var(--primary-light);
+  padding: 0.18rem 0.5rem;
+  border-radius: var(--radius-sm);
+}
+
+.step-year {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+}
+
+.step-role {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.step-desc {
+  font-size: 0.86rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ==========================================================================
+   EASI Memo Banner (EiCnam Criterion 4)
+   ========================================================================== */
+.easi-memo-banner {
+  background: var(--bg-subtle);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.25rem, 2vw, 1.6rem);
+  margin-bottom: 2rem;
+}
+
+.easi-memo-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 0.65rem;
+}
+
+.easi-memo-tag {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.easi-memo-status-pill {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 0.2rem 0.65rem;
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+}
+
+.easi-memo-title {
+  font-size: clamp(1.05rem, 1rem + 0.25vw, 1.25rem);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.easi-memo-sub {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+}
+
+.easi-memo-tasks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.easi-memo-tasks li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.memo-checkbox {
+  font-size: 0.95rem;
+  color: var(--primary);
+  font-weight: bold;
+  line-height: 1.3;
+}
+
+.memo-task-text {
+  flex: 1;
+}
