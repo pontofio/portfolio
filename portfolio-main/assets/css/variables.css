@@ -1,0 +1,78 @@
+:root {
+  /* Color Palette — Light Mode */
+  --bg: #f8fafc;
+  --bg-subtle: #f1f5f9;
+  --surface: #ffffff;
+  --surface-glass: rgba(255, 255, 255, 0.85);
+  --card: #ffffff;
+  --card-hover: #f8fafc;
+  
+  --primary: #059669;
+  --primary-dark: #047857;
+  --primary-light: rgba(5, 150, 105, 0.1);
+  --primary-glow: rgba(5, 150, 105, 0.25);
+  --accent: #2563eb;
+  
+  --ink: #0f172a;
+  --ink-soft: #475569;
+  --ink-muted: #94a3b8;
+  
+  --line: rgba(15, 23, 42, 0.08);
+  --line-strong: rgba(15, 23, 42, 0.16);
+  --line-focus: rgba(5, 150, 105, 0.4);
+  
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.12);
+  --shadow-hover: 0 14px 34px -6px rgba(5, 150, 105, 0.18);
+  --shadow-modal: 0 25px 60px -15px rgba(15, 23, 42, 0.35);
+
+  /* Typography */
+  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  /* Border Radii */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* Animation & Easings */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s var(--ease-out);
+  --transition-slow: 0.4s var(--ease-out);
+}
+
+[data-theme="dark"] {
+  /* Color Palette — Dark Mode */
+  --bg: #090d16;
+  --bg-subtle: #0f172a;
+  --surface: #111827;
+  --surface-glass: rgba(17, 24, 39, 0.85);
+  --card: #131c2e;
+  --card-hover: #17223b;
+  
+  --primary: #10b981;
+  --primary-dark: #34d399;
+  --primary-light: rgba(16, 185, 129, 0.15);
+  --primary-glow: rgba(16, 185, 129, 0.35);
+  --accent: #38bdf8;
+  
+  --ink: #f8fafc;
+  --ink-soft: #94a3b8;
+  --ink-muted: #64748b;
+  
+  --line: rgba(255, 255, 255, 0.09);
+  --line-strong: rgba(255, 255, 255, 0.18);
+  --line-focus: rgba(16, 185, 129, 0.45);
+  
+  --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 6px 18px -2px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 40px -4px rgba(0, 0, 0, 0.7);
+  --shadow-hover: 0 14px 34px -6px rgba(16, 185, 129, 0.25);
+  --shadow-modal: 0 25px 60px -15px rgba(0, 0, 0, 0.85);
+}

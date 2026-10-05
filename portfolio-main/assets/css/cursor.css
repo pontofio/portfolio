@@ -1,0 +1,41 @@
+/* Ambient Background Spotlight (pure background lighting, zero cursor interference) */
+@media (hover: hover) and (pointer: fine) {
+  .cursor-spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    filter: blur(45px);
+    transition: opacity 0.3s ease;
+  }
+
+  [data-theme="light"] .cursor-spotlight {
+    opacity: 0.25;
+  }
+
+  [data-theme="dark"] .cursor-spotlight {
+    opacity: 0.45;
+  }
+
+  .cursor-spotlight.cursor-visible {
+    opacity: 0.35;
+  }
+
+  [data-theme="dark"] .cursor-spotlight.cursor-visible {
+    opacity: 0.55;
+  }
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .cursor-spotlight {
+    display: none !important;
+  }
+}
+}
